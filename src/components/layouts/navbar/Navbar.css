@@ -3,6 +3,7 @@ nav{
     justify-content: right;
     align-items: center;
     width: 100%;
+    padding: 0.5rem 1rem;
 }
 nav a{
     padding: 0.5rem 1rem;

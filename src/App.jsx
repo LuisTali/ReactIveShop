@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import Navbar from './components/navbar/Navbar.jsx'
-import ItemListContainer from './components/itemListContainer/ItemListContainer.jsx'
+import Navbar from './components/layouts/navbar/Navbar.jsx'
+import ItemListContainer from './components/layouts/itemListContainer/ItemListContainer.jsx'
 
 import './App.css'
 
