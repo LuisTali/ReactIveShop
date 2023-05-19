@@ -8,11 +8,16 @@ import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
 
 const Navbar = () =>{
+
+    const handleClick = () =>{
+        console.log('click');
+    }
+
     return <nav>
-        <a><FastfoodIcon/>Comida</a>
-        <a><BathroomIcon/>Higiene</a>
-        <a><ElectricBoltIcon/>Tecnologia</a>
-        <a><CheckroomIcon/>Indumentaria</a>
+        <a onClick={handleClick}><FastfoodIcon/>Comida</a>
+        <a onClick={handleClick}><BathroomIcon/>Higiene</a>
+        <a onClick={handleClick}><ElectricBoltIcon/>Tecnologia</a>
+        <a onClick={handleClick}><CheckroomIcon/>Indumentaria</a>
         <CardWidget/>
     </nav>
 }
