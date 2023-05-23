@@ -1,4 +1,20 @@
-h2{
-    text-align:center;
+.itemListContainer{
+    width: 100%;    
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;  
+    padding-bottom: 2rem;
     margin-top:20%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.itemListContainer h2{
+    text-align:center;
+}
+.itemListContainer button{
+    width: 20%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    margin-top: 0.5rem;
 }

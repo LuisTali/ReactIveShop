@@ -1,3 +1,33 @@
 #shoppingCart{
     margin-left: 3rem;
 }
+.listShoppingCart{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 1rem;
+    margin-top: 5rem;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    width: max-content;
+}
+.listShoppingCart ul{
+    white-space: nowrap;
+}
+.listShoppingCart ul li{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 0.5rem;
+}
+.listShoppingCart ul li button{
+    border-radius: 5px;
+    padding: 0.25rem;
+    font-weight: 500;
+}
+
+.listShoppingCart.light{
+    border: 2px solid rgb(20,20,20);
+}
+.listShoppingCart.dark{
+    border: 2px solid aliceblue;
+}
