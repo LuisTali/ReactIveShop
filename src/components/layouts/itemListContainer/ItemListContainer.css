@@ -4,7 +4,7 @@
     flex-direction: column;
     padding-top: 2rem;  
     padding-bottom: 2rem;
-    margin-top:20%;
+    margin-top:2rem;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
@@ -17,4 +17,44 @@
     padding: 0.8rem;
     border-radius: 5px;
     margin-top: 0.5rem;
+}
+.fridges{
+    width: 80%;
+    height: 550px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.fridges .fridge{
+    width: 30%;
+    height: 530px;
+    background-color: red;
+    color: black;
+    text-align: center;
+    font-family: 'Coca Cola ii',sans-serif;
+    border-radius: 5px;
+    position: relative;
+    padding: 1rem;
+}
+.fridge .manija{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 60%;
+    margin-right: 0.35rem;
+    box-shadow: -1px 0px 8px 1px whitesmoke;
+    width: 10px;
+    height: 30px;
+    background-color: silver;
+}
+.fridge .fridgeContainer{
+    background-color: rgb(20, 20, 20);
+    height: 440px;
+    width: 90%;
+    margin-left: 5%;
+    border-radius: 2.5px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    padding: 0.75rem;
 }

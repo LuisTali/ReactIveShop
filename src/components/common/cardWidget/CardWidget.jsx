@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CardWidgetPresentacional from './CardWidgetPresentacional.jsx';
 import './CardWidget.css'
 
 const CardWidget = ({theme, products, setProducts}) =>{
@@ -16,7 +17,7 @@ const CardWidget = ({theme, products, setProducts}) =>{
         {showCart && <div className={theme ? 'listShoppingCart light' : 'listShoppingCart dark'}>
             <ul>
                 {products.length > 0 ? 
-                products.map((product)=><li><h3>{product}</h3><button onClick={()=>handleRemove(product)}>remove</button></li>) 
+                products.map((product)=><CardWidgetPresentacional product={product} handleRemove={handleRemove}/>) 
                 : 'You dont have products in your cart'}
             </ul>
         </div>}

@@ -7,7 +7,7 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   const [theme,setTheme] = useState(false);
-  const [products,setProducts] = useState([1,2,3]);
+  const [products,setProducts] = useState([]);
 
   const greeting = 'Hola, bienvenido a mi tienda virtual ReactiveShop'
 

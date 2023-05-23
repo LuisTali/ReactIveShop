@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import CardWidget from '../../common/CardWidget.jsx'
+import CardWidget from '../../common/cardWidget/CardWidget.jsx'
 import './Navbar.css'
 
 import FastfoodIcon from '@mui/icons-material/Fastfood';
@@ -14,6 +14,7 @@ const Navbar = ({theme,setTheme,products,setProducts}) =>{
     }
 
     return <nav className={theme ? 'light' : 'dark'}>
+        <img src="https://res.cloudinary.com/dvcmeanik/image/upload/v1684852170/iuruqdqub5i4mgjw3cfs.jpg"/>
         <a onClick={handleClick}><FastfoodIcon/>Comida</a>
         <a onClick={handleClick}><BathroomIcon/>Higiene</a>
         <a onClick={handleClick}><ElectricBoltIcon/>Tecnologia</a>
