@@ -1,0 +1,30 @@
+.footer{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0.5rem 0rem;
+    border-radius: 10px;
+}
+.footer a{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    align-items: center;
+    padding: 0.40rem;
+    border-radius: 5px;
+}
+.footer img{
+    width: 30px;
+}
+
+.footer.light{
+    background-color: azure;
+}
+.footer.light a{
+    color: black;
+}
+.footer.dark a{
+    color: black;
+    background-color: azure;
+
+}

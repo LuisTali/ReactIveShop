@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import Navbar from './components/layouts/navbar/Navbar.jsx'
 import ItemListContainer from './components/layouts/itemListContainer/ItemListContainer.jsx'
+import Footer from './components/layouts/footer/Footer.jsx'
 
 import './App.css'
 
@@ -15,6 +16,7 @@ function App() {
     <>
       <Navbar theme={theme} setTheme={setTheme} products={products} setProducts={setProducts}/>
       <ItemListContainer theme={theme} greeting={greeting} products={products} setProducts={setProducts}/>
+      <Footer theme={theme}/>
     </>
   )
 }
