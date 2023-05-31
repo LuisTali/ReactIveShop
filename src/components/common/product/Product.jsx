@@ -1,8 +1,8 @@
 import React from "react";
 import './Product.css'
-const Product = ({name, imgsrc, handleAddFridges, price}) =>{
+const Product = ({id, name, imgsrc, handleAddFridges, price}) =>{
 
-    return <article className='item' onClick={()=>handleAddFridges(name,price)}>
+    return <article key={id} className='item' onClick={()=>handleAddFridges(name,price)}>
         <b>${price}</b>
         <h4>{name}</h4>
         <img src={imgsrc}/>

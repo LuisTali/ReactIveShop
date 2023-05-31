@@ -8,7 +8,7 @@ import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import CheckroomIcon from '@mui/icons-material/Checkroom';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 
-const Navbar = ({theme,setTheme,products,setProducts}) =>{
+const Navbar = ({theme,setTheme,productsInCart,setProductsInCart}) =>{
     const handleClick = () =>{
         console.log('click');
     }
@@ -20,7 +20,7 @@ const Navbar = ({theme,setTheme,products,setProducts}) =>{
         <a onClick={handleClick}><ElectricBoltIcon/>Tecnologia</a>
         <a onClick={handleClick}><CheckroomIcon/>Indumentaria</a>
         <a onClick={()=>setTheme(!theme)}><DarkModeIcon/>{theme ? 'DarkTheme' : 'LightTheme'}</a>
-        <CardWidget theme={theme} products={products} setProducts={setProducts}/>
+        <CardWidget theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
     </nav>
 }
 export default Navbar;

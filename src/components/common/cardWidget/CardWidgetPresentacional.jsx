@@ -1,11 +1,11 @@
 import React from "react";
 
-const CardWidgetPresentacional = ({name,price,quantity,handleRemove}) =>{
-    return <li>
-        <h3>{name}</h3>
-        <b>{price}</b>
-        <b>{quantity}</b>
-        <button onClick={()=>handleRemove(name)}>remove</button>
-    </li>
+const CardWidgetPresentacional = ({productsInCart,handleRemove}) =>{
+    return productsInCart.map((product)=> <li>
+        <h3>{product.name}</h3>
+        <b>{product.price}</b>
+        <b>{product.quantity}</b>
+        <button onClick={()=>handleRemove(product.name)}>remove</button>
+    </li>)
 }
 export default CardWidgetPresentacional;
