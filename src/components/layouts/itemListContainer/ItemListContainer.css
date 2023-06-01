@@ -20,52 +20,11 @@
     margin-top: 0.5rem;
 }
 .fridges{
-    width: 80%;
+    width: 90%;
     height: 600px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 1rem;
-}
-.fridges .fridge{
-    max-width: 455px;
-    width: 80%;
-    height: 580px;
-    background-color: red;
-    color: black;
-    text-align: center;
-    font-family: 'Coca Cola ii',sans-serif;
-    border-radius: 5px;
-    position: relative;
-    padding: 0.8rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-}
-.fridge h3{
-    margin-bottom: 0.5rem;
-}
-.fridge .manija{
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 60%;
-    margin-right: 0.35rem;
-    box-shadow: -0.5px -3px 5px 1px whitesmoke;
-    width: 10px;
-    height: 30px;
-    background-color: silver;
-}
-.fridge .fridgeContainer{
-    background-color: rgb(20, 20, 20);
-    height: 480px;
-    width: 90%;
-    margin-left: 5%;
-    border-radius: 2.5px;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(3,1fr);
-    padding: 0.75rem;
-    box-shadow: inset 0px 0px 15px 2px white;
     gap: 1rem;
 }
 
@@ -78,14 +37,6 @@
         height: fit-content;
         flex-direction: column;
     }
-    .fridges .fridge{
-        width: 100%
-    }
-    
 }
-@media screen and (max-width:400px){
-    .fridge .fridgeContainer{
-        grid-template-columns: repeat(2,1fr);
-    }
-}
+
 

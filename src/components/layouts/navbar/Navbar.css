@@ -4,7 +4,6 @@ nav{
     align-items: center;
     width: 100%;
     padding: 1rem 1.25rem;
-    border-radius: 10px;
 }
 nav a{
     padding: 0.5rem 1rem;
@@ -14,4 +13,6 @@ nav img{
     height: 40px;
     margin-right: 50%;
     border-radius: 5px;
+    padding: 0.5rem;
+    background-color: white;
 }

@@ -9,7 +9,7 @@
     margin-top: 5rem;
     padding: 1rem 2rem;
     border-radius: 10px;
-    width: 320px;
+    width: 400px;
     z-index: 2000;
 }
 .listShoppingCart ul{
@@ -36,4 +36,12 @@
 }
 .listShoppingCart.dark{
     border: 2px solid aliceblue;
+}
+
+@media screen and (max-width:500px){
+    .listShoppingCart{
+        width: 98%;
+        margin-right:1%;
+        margin-top: 6rem;
+    }
 }

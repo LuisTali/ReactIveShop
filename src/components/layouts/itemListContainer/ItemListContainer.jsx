@@ -1,12 +1,21 @@
-import React,{useState} from 'react';
+import React,{useEffect, useState} from 'react';
 import { products } from '../../../productsMock.js';
-import ItemListContainerPresentacional from './ItemListContainerPresentacional.jsx'
+import Fridge from '../../common/fridge/Fridge.jsx';
 import './ItemListContainer.css'
 
 
 const ItemListContainer = ({greeting, theme, productsInCart, setProductsInCart}) =>{
 
     const [items,setItems] = useState(products);
+    const [sodas,setSodas] = useState([]);
+    const [energyDrinks,setEnergyDrinks] = useState([]);
+
+    useEffect(()=>{
+        let sodas = items.filter((item) => item.type == 'soda');
+        let energyDrinks = items.filter((item) => item.type == 'energydrink');
+        setSodas(sodas);
+        setEnergyDrinks(energyDrinks);
+    },[])
 
     const handleAddFridges = (name,price) =>{
         if(productsInCart.length > 0){
@@ -31,34 +40,14 @@ const ItemListContainer = ({greeting, theme, productsInCart, setProductsInCart})
         }
     }
     
-    return <div className= {theme ? 'itemListContainer light' : 'itemListContainer dark'}>
+    return <div className= {theme ? 'itemListContainer' : 'itemListContainer'}>
         <h2>
             {greeting}
         </h2>
         <h3>Fridges</h3>
         <div className='fridges'>
-            <div className='fridge'>
-                <h3>Coca Cola</h3>
-                <div className='fridgeContainer'>
-                    <ItemListContainerPresentacional items={items} handleAddFridges={handleAddFridges}/>
-                </div>
-                <div className='manija'/>
-            </div>
-            <div className='fridge'>
-                <h3>Energizantes</h3>
-                <div className='fridgeContainer'>
-                    <article className='item'/>
-                    <article className='item'/>
-                    <article className='item'/>
-                    <article className='item'/>
-                    <article className='item'/>
-                    <article className='item'/>
-                    <article className='item'/>
-                    <article className='item'/>
-                    <article className='item'/>
-                </div>
-                <div className='manija'/>
-            </div>
+            <Fridge title={'Coca Cola'} items={sodas} handleAddFridges={handleAddFridges}/>
+            <Fridge title={'Energizantes'} items={energyDrinks} handleAddFridges={handleAddFridges}/>
         </div>
     </div>
 }

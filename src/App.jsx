@@ -9,14 +9,14 @@ function App() {
   const [theme,setTheme] = useState(false); //themeFalse == darkMode; themeTrue == lightMode
   const [productsInCart,setProductsInCart] = useState([]); //Comparto los productos en el carrito con Navbar y ItemListContainer
 
-  const greeting = 'Hola, bienvenido a mi tienda virtual ReactiveShop'
+  const greeting = 'Hola, bienvenido a ReactiveShop'
 
   return (
-    <>
+    <div className={theme ? 'bodyLight' : 'bodyDark'}>
       <Navbar theme={theme} setTheme={setTheme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
       <ItemListContainer theme={theme} greeting={greeting} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
       <Footer theme={theme}/>
-    </>
+    </div>
   )
 }
 

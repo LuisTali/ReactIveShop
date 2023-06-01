@@ -3,7 +3,6 @@
     width: 100%;
     justify-content: center;
     padding: 0.5rem 0rem;
-    border-radius: 10px;
 }
 .footer a{
     display: flex;
@@ -11,20 +10,19 @@
     text-decoration: none;
     align-items: center;
     padding: 0.40rem;
-    border-radius: 5px;
+    
 }
 .footer img{
     width: 30px;
+    margin-left: 0.4rem;
 }
 
 .footer.light{
-    background-color: azure;
+    background-color: white;
 }
 .footer.light a{
     color: black;
 }
 .footer.dark a{
-    color: black;
-    background-color: azure;
-
+    color: azure;
 }
