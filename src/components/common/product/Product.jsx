@@ -2,18 +2,18 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import './Product.css'
 
-const Product = ({id, name, imgsrc, handleAdd, price, category}) =>{
+const Product = ({id, name, imgsrc, handleAdd, price, category, quantityCart}) =>{
     const navigate = useNavigate();
 
     const handleAddItem = () =>{
-        console.log(category);
         if(category == 'drinks'){
             let newItem = {id,name,imgsrc,price,typeof:'drink'};
             handleAdd(newItem);
         }else if(category == 'foods'){
-            let newItem = {id,name,imgsrc,price,typeof:'foods'} 
+            console.log(quantityCart+1);
+            let newItem = {id,name,imgsrc,price,typeof:'foods',extras:[]} 
             handleAdd(newItem);
-            navigate(`/comida/${id}`);
+            navigate(`/comidas/${quantityCart}`);
         }
     }
 

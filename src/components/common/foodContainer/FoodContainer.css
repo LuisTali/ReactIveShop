@@ -4,7 +4,6 @@
 }
 .foodContainer .armrest{
     background-color: gray;
-    width: 812px;
     padding: 0.5rem 0.5rem 2.5rem 0.5rem;
     border-radius: 10px;
     box-shadow: inset -1px -10px 10px 2px white;
@@ -27,6 +26,7 @@
     z-index: -1;
 }
 .foodContainer .item .img{
-    
+    filter: brightness(1.1);
+    mix-blend-mode: multiply;
 }
 

@@ -79,31 +79,42 @@ export const products = [
         imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719870/ReactIveShop/Comidas/v8ffrvex1vu2ub577vhv.png',
         price:1000,
         type:'food'
-    },{
+    },
+    {
         id:13,
-        name:'Burguer HealT',
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719897/ReactIveShop/Comidas/m9fklfebailkjlcgzqs1.jpg',
+        name:'The "Chancha"',
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685731877/ReactIveShop/Comidas/i05mfsj2xpshoohfzpaq.png',
         price:900,
         type:'food'
-    },{
+    },
+    {
         id:14,
-        name:'Ham LongFeet',
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719933/ReactIveShop/Comidas/yzuj5elbnxocsm8vqlmo.webp',
+        name:'Burguer HealT',
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685731911/ReactIveShop/Comidas/bid01swlqjofkqs5u9ae.png',
         price:750,
         type:'food'
-    },{
+    },
+    {
         id:15,
-        name:'Chicken Kids',
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719957/ReactIveShop/Comidas/kfbmrdy8umnw1iyy5mgc.avif',
+        name:'VegiBurguer',
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685731939/ReactIveShop/Comidas/k1rcj6vox4tezqeytcwz.png',
         price:600,
         type:'food'
-    },{
+    },
+    {
         id:16,
-        name:'Hot Dog',
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719980/ReactIveShop/Comidas/rkmnsmzlv9miqxbylhit.jpg',
+        name:'ChickenBurguer',
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685731957/ReactIveShop/Comidas/ktqevdmjubkxvf4sygph.jpg',
         price:300,
         type:'food'
     },
+    {
+        id:17,
+        name:'TriBurguer',
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685732166/ReactIveShop/Comidas/qjxrnbiq45keboxut4fy.png',
+        price:1200,
+        type:'food'
+    }   
 
     
 ]
