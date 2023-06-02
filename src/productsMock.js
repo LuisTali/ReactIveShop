@@ -72,6 +72,38 @@ export const products = [
         imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685626812/ReactIveShop/Energizantes/izoojqsr7kfwaydqzfpn.jpg',
         price:500,
         type:'energydrink'
-    }
+    },
+    {
+        id:12,
+        name:'Burguer BeasT',
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719870/ReactIveShop/Comidas/v8ffrvex1vu2ub577vhv.png',
+        price:1000,
+        type:'food'
+    },{
+        id:13,
+        name:'Burguer HealT',
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719897/ReactIveShop/Comidas/m9fklfebailkjlcgzqs1.jpg',
+        price:900,
+        type:'food'
+    },{
+        id:14,
+        name:'Ham LongFeet',
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719933/ReactIveShop/Comidas/yzuj5elbnxocsm8vqlmo.webp',
+        price:750,
+        type:'food'
+    },{
+        id:15,
+        name:'Chicken Kids',
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719957/ReactIveShop/Comidas/kfbmrdy8umnw1iyy5mgc.avif',
+        price:600,
+        type:'food'
+    },{
+        id:16,
+        name:'Hot Dog',
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719980/ReactIveShop/Comidas/rkmnsmzlv9miqxbylhit.jpg',
+        price:300,
+        type:'food'
+    },
+
     
 ]

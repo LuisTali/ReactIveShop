@@ -1,0 +1,13 @@
+.foodEdit{
+    width: 100%;    
+    min-height: 93vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0rem;  
+}
+.foodEdit img{
+    width: 30%;
+    margin: 1rem 0rem;
+}

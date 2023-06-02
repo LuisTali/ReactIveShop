@@ -8,7 +8,9 @@ nav{
 nav a{
     padding: 0.5rem 1rem;
     cursor: pointer;
+    text-decoration: none;
 }
+
 nav img{
     height: 40px;
     margin-right: 50%;

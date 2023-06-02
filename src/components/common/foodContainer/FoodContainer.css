@@ -1,0 +1,32 @@
+.foodContainer #employee{
+    height: 150px;
+    margin-left: 2rem;
+}
+.foodContainer .armrest{
+    background-color: gray;
+    width: 812px;
+    padding: 0.5rem 0.5rem 2.5rem 0.5rem;
+    border-radius: 10px;
+    box-shadow: inset -1px -10px 10px 2px white;
+}
+.glass{
+    display: flex;
+    background: white;
+    z-index: 2000;
+    opacity: 0.7;
+    padding: 2.5rem;
+    border-radius: 5px;
+    box-shadow: inset 0px 5px 10px 5px yellow;
+}
+
+.glass .item{
+    width: 140px;
+    color: black;
+    margin-right: 0.5rem;
+    text-align: center;
+    z-index: -1;
+}
+.foodContainer .item .img{
+    
+}
+
