@@ -4,6 +4,7 @@ import Navbar from './components/layouts/navbar/Navbar.jsx'
 import ItemListContainer from './components/layouts/itemListContainer/ItemListContainer.jsx'
 import Footer from './components/layouts/footer/Footer.jsx'
 import HomePage from './components/pages/home/HomePage.jsx';
+import EndBuy from './components/pages/endBuy/EndBuy.jsx';
 import FoodEdit from './components/pages/foodEdit/FoodEdit.jsx';
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
           <Route path='/bebidas' element={<ItemListContainer theme={theme} type={'drinks'} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/> 
           <Route path='/comidas' element={<ItemListContainer theme={theme} type={'foods'} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/>
           <Route path='/comidas/:id' element={<FoodEdit theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/>
+          <Route path='/endBuy' element={<EndBuy productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/>
           <Route path='/*' element={<HomePage greeting={'Oops, we could not find this page'}/>}/>
         </Routes>
         <Footer theme={theme}/>

@@ -1,0 +1,27 @@
+.cartList{
+
+}
+.shoppingCartList{
+    width: 70%;
+    margin-left: 15%;
+}
+.cartList .shoppingCartList .cartItem{
+    display: flex;
+    width: 100%;
+    margin: 1rem;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+.cartItem h3{
+    width: 130px;
+}
+.cartItem #price{
+    width: 40px;
+}
+.showInfo{
+    display: normal;
+}
+.notShow{
+    display: none;
+}

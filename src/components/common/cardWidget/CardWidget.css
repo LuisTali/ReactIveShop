@@ -37,6 +37,10 @@
 .listShoppingCart.dark{
     border: 2px solid aliceblue;
 }
+#endShop{
+    padding: 0.5rem;
+    margin-left: 60%;
+}
 
 @media screen and (max-width:500px){
     .listShoppingCart{

@@ -38,13 +38,9 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
         }
         console.log(productsInCart.length);
         for(const item of productsInCart){
-            console.log(item.idCart);
             if(item.name == product.name && item.idCart < productsInCart.length - 1){
-                let temporaryProduct = {...product,idCart:item.idCart};
-                console.log(JSON.stringify(item));
-                console.log(JSON.stringify(temporaryProduct));
+                let temporaryProduct = {...product,quantity:item.quantity,idCart:item.idCart};
                 if(JSON.stringify(item) == JSON.stringify(temporaryProduct)){
-                    console.log('identicos previos');
                     item.quantity++;
                     flag=true;
                     break;
@@ -61,7 +57,6 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
             newProducts.splice(product.idCart,1);
             setProductsInCart(newProducts);
         }
-        console.log(product);
     }
     
     return(
@@ -89,10 +84,10 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
                 <div className="selectGroup">
                     <label>Seleccione un aderezo</label>
                     <select name="aderezo" id="" placeholder="" onChange={(e)=>handleChange(e)}>
+                        <option value='none'>sin aderezo</option>
                         <option value='ketchup'>ketchup</option>
                         <option value='mayonesa'>mayonesa</option>
                         <option value='barbacoa'>barbacoa</option>
-                        <option selected value='none'>sin aderezo</option>
                     </select>
                 </div>
                 <button onClick={handleSubmit}>Listo</button>

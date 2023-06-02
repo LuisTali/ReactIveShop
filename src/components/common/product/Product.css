@@ -10,6 +10,7 @@
     justify-self: center;
     border-radius: 2.5px;
     box-shadow: 0px 3px 10px 1px white;
+    cursor: pointer;
 }
 .item img{
     height: 90px;  

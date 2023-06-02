@@ -1,9 +1,11 @@
 import React,{useState,useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CardWidgetPresentacional from './CardWidgetPresentacional.jsx';
 import './CardWidget.css'
 
 const CardWidget = ({theme, productsInCart, setProductsInCart}) =>{
+    const navigate = useNavigate();    
     const [showCart,setShowCart] = useState(false);
     const [cantItems,setCantItems] = useState(0);
 
@@ -16,7 +18,7 @@ const CardWidget = ({theme, productsInCart, setProductsInCart}) =>{
     },[productsInCart])
 
     const handleRemove = (value) =>{
-        let newProducts = productsInCart.filter((product) => product.name != value)
+        let newProducts = productsInCart.filter((product) => product.idCart != value)
         setProductsInCart(newProducts);
     }
 
@@ -25,10 +27,13 @@ const CardWidget = ({theme, productsInCart, setProductsInCart}) =>{
         {cantItems}
         {showCart && <div className={theme ? 'listShoppingCart light' : 'listShoppingCart dark'}>
             <ul>
-                {productsInCart.length > 0 ? 
+                {productsInCart.length > 0 ? <>
                 <CardWidgetPresentacional productsInCart={productsInCart} handleRemove={handleRemove}/>
+                <button id='endShop' onClick={()=>navigate('/endBuy')}>Finalizar Compra</button>
+                </>
                 : 'You dont have products in your cart'}
             </ul>
+            
         </div>}
     </div>
 }
