@@ -21,6 +21,7 @@
 }
 .showInfo{
     display: normal;
+    margin-left: 2rem;
 }
 .notShow{
     display: none;

@@ -22,6 +22,11 @@ const CardWidget = ({theme, productsInCart, setProductsInCart}) =>{
         setProductsInCart(newProducts);
     }
 
+    const handleEndShopClick = () =>{
+        setShowCart(false);
+        navigate('/endBuy');
+    }
+
     return <div id='shoppingCart'>
         <ShoppingCartIcon style={{cursor:'pointer'}} onClick={()=>setShowCart(!showCart)}/>
         {cantItems}
@@ -29,7 +34,7 @@ const CardWidget = ({theme, productsInCart, setProductsInCart}) =>{
             <ul>
                 {productsInCart.length > 0 ? <>
                 <CardWidgetPresentacional productsInCart={productsInCart} handleRemove={handleRemove}/>
-                <button id='endShop' onClick={()=>navigate('/endBuy')}>Finalizar Compra</button>
+                <button id='endShop' onClick={()=>handleEndShopClick()}>Finalizar Compra</button>
                 </>
                 : 'You dont have products in your cart'}
             </ul>

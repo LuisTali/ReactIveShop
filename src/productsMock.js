@@ -75,43 +75,43 @@ export const products = [
     },
     {
         id:12,
-        name:'Burguer BeasT',
+        name:'Burguer BeasT', //Updated Img
         imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685719870/ReactIveShop/Comidas/v8ffrvex1vu2ub577vhv.png',
         price:1000,
         type:'food'
     },
     {
         id:13,
-        name:'The "Chancha"',
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685731877/ReactIveShop/Comidas/i05mfsj2xpshoohfzpaq.png',
+        name:'The "Chancha"', //Updated Img
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1686058898/ReactIveShop/Comidas/vi4lehpsczxdgrfbetod.png',
         price:900,
         type:'food'
     },
     {
         id:14,
-        name:'Burguer HealT',
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685731911/ReactIveShop/Comidas/bid01swlqjofkqs5u9ae.png',
+        name:'Burguer HealT', //Updated Img
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1686059060/ReactIveShop/Comidas/iubvc1e91zjlcjcjezbi.png',
         price:750,
         type:'food'
     },
     {
         id:15,
-        name:'VegiBurguer',
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685731939/ReactIveShop/Comidas/k1rcj6vox4tezqeytcwz.png',
+        name:'VegiBurguer', //Updated Img
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1686058770/ReactIveShop/Comidas/hov1rnoujclerqvqvb8b.png',
         price:600,
         type:'food'
     },
     {
         id:16,
-        name:'ChickenBurguer',
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685731957/ReactIveShop/Comidas/ktqevdmjubkxvf4sygph.jpg',
+        name:'ChickenBurguer', //Updated Img
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1686058665/ReactIveShop/Comidas/zjpvizbfgwu2kgmkr3mj.png',
         price:300,
         type:'food'
     },
     {
         id:17,
-        name:'TriBurguer',
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685732166/ReactIveShop/Comidas/qjxrnbiq45keboxut4fy.png',
+        name:'TriBurguer', //Updated Img
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1686059130/ReactIveShop/Comidas/jlnlxpjxpppdffl8zth4.png',
         price:1200,
         type:'food'
     }   

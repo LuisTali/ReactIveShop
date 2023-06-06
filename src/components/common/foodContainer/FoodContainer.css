@@ -30,3 +30,9 @@
     mix-blend-mode: multiply;
 }
 
+@media screen and (max-width:990px){
+    .glass{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

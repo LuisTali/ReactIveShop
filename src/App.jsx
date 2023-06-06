@@ -20,7 +20,7 @@ function App() {
     <Router>
         <Navbar theme={theme} setTheme={setTheme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
         <Routes>
-          <Route exact path='/home' element={<HomePage greeting={greeting}/>}/>
+          <Route exact path='/' element={<HomePage greeting={greeting}/>}/>
           <Route path='/bebidas' element={<ItemListContainer theme={theme} type={'drinks'} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/> 
           <Route path='/comidas' element={<ItemListContainer theme={theme} type={'foods'} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/>
           <Route path='/comidas/:id' element={<FoodEdit theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/>

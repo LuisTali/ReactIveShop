@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const EndBuyItem = ({name,quantity,price,extras}) =>{
+const EndBuyItem = ({name,quantity,price,extras,salsa}) =>{
 
     const [show,setShow] = useState(false);
 
@@ -12,6 +12,7 @@ const EndBuyItem = ({name,quantity,price,extras}) =>{
         </div>
         <div className={show ? 'showInfo' : 'notShow'}>
             {extras && extras.map((extra) => <h5>{extra}</h5>)}
+            {salsa && <h5>Aderezo: {salsa}</h5>}
         </div>
     </li>
 }

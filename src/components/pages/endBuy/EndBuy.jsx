@@ -3,6 +3,7 @@ import EndBuyItem from "./EndBuyItem.jsx";
 import './EndBuy.css';
 
 const EndBuy = ({productsInCart}) =>{
+    console.log(productsInCart);
     return <div className="cartList">
         <ul className="shoppingCartList">
         <div className="cartItem">

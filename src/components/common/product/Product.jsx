@@ -11,9 +11,9 @@ const Product = ({id, name, imgsrc, handleAdd, price, category, quantityCart}) =
             handleAdd(newItem);
         }else if(category == 'foods'){
             console.log(quantityCart+1);
-            let newItem = {id,name,imgsrc,price,typeof:'foods',extras:[]} 
-            handleAdd(newItem);
-            navigate(`/comidas/${quantityCart}`);
+            //let newItem = {id,name,imgsrc,price,typeof:'foods',extras:[]} 
+            //handleAdd(newItem);
+            navigate(`/comidas/${id}`);
         }
     }
 

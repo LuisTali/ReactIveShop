@@ -1,13 +1,16 @@
 import React, { useState,useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { products } from "../../../productsMock.js";
 import './FoodEdit.css';
 
 const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
     const {id} = useParams();
     const [product,setProduct] = useState({});
+    const navigate = useNavigate();
 
     useEffect(()=>{
-        let food = productsInCart.find((product) => product.idCart == id);
+        //let food = productsInCart.find((product) => product.idCart == id);
+        let food = products.find((product)=>product.id == id);
         setProduct({...food,extras:[]});
     },[]);
 
@@ -36,28 +39,31 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
             const productUpdated = {...product,salsa:'sin salsa'}
             setProduct(productUpdated);
         }
-        console.log(productsInCart.length);
+        let product1 = {idCart:productsInCart.length,...product,quantity:1};
         for(const item of productsInCart){
-            if(item.name == product.name && item.idCart < productsInCart.length - 1){
-                let temporaryProduct = {...product,quantity:item.quantity,idCart:item.idCart};
+            if(item.name == product1.name){
+                let temporaryProduct = {idCart:item.idCart,...product,quantity:item.quantity,};
+                console.log(temporaryProduct);
                 if(JSON.stringify(item) == JSON.stringify(temporaryProduct)){
                     item.quantity++;
                     flag=true;
                     break;
                 }
+                if(flag) break;
             }
-            if(flag) break;
         }
-        if(!flag){
-            let newProductsInCart = [...productsInCart];
-            newProductsInCart[product.idCart] = product;
-            setProductsInCart(newProductsInCart);
-        }else{
-            let newProducts = [...productsInCart];
-            newProducts.splice(product.idCart,1);
-            setProductsInCart(newProducts);
+            if(!flag){
+                let newProductsInCart = [...productsInCart];
+                newProductsInCart.push(product1);
+                setProductsInCart(newProductsInCart);
+                navigate('/comidas');
+            }else{
+                let newProducts = [...productsInCart];
+                //newProducts.splice(product.idCart,1);
+                setProductsInCart(newProducts);
+                navigate('/comidas');
+            }
         }
-    }
     
     return(
         <div className={theme ? "foodEdit bodyLight" : "foodEdit bodyDark"}>
@@ -67,31 +73,40 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
             <h3>${product.price}</h3>
             <div className="editInfo">
                 <div className="inputGroup">
-                  <label>Extra Medallon</label><input type="checkbox" name="extraMedallon" id="" onChange={(e)=>handleChange(e)}/>  
+                  <label>Extra Medallon</label>
+                  <input className="checkbox" type="checkbox" name="extraMedallon" id="" onChange={(e)=>handleChange(e)}/>  
                 </div>
                 <div className="inputGroup">
-                <label>Extra Bacon</label><input type="checkbox" name="extraBacon" id="" onChange={(e)=>handleChange(e)}/>
+                <label>Extra Bacon</label>
+                <input className="checkbox" type="checkbox" name="extraBacon" id="" onChange={(e)=>handleChange(e)}/>
                 </div>
                 <div className="inputGroup">
-                    <label>Extra Cheddar</label><input type="checkbox" name="extraCheddar" id="" onChange={(e)=>handleChange(e)}/>
+                    <label>Extra Cheddar</label>
+                    <input className="checkbox" type="checkbox" name="extraCheddar" id="" onChange={(e)=>handleChange(e)}/>
                 </div>
                 <div className="inputGroup">
-                    <label>Extra Tomate</label><input type="checkbox" name="extraTomate" id="" onChange={(e)=>handleChange(e)}/>  
+                    <label>Extra Tomate</label>
+                    <input className="checkbox" type="checkbox" name="extraTomate" id="" onChange={(e)=>handleChange(e)}/>  
                 </div>
                 <div className="inputGroup">
-                    <label>Extra Lechuga</label><input type="checkbox" name="extraLechuga" id="" onChange={(e)=>handleChange(e)}/>    
+                    <label>Extra Lechuga</label>
+                    <input className="checkbox" type="checkbox" name="extraLechuga" id="" onChange={(e)=>handleChange(e)}/>    
+                </div>
+                <div className="inputGroup">
+                    <label>Extra Pepinillo</label>
+                    <input className="checkbox" type="checkbox" name="extraPepinillo" id="" onChange={(e)=>handleChange(e)}/>    
                 </div>
                 <div className="selectGroup">
                     <label>Seleccione un aderezo</label>
                     <select name="aderezo" id="" placeholder="" onChange={(e)=>handleChange(e)}>
-                        <option value='none'>sin aderezo</option>
+                        <option value='sin salsa'>sin aderezo</option>
                         <option value='ketchup'>ketchup</option>
                         <option value='mayonesa'>mayonesa</option>
                         <option value='barbacoa'>barbacoa</option>
                     </select>
                 </div>
-                <button onClick={handleSubmit}>Listo</button>
             </div>
+            <button className="addBurguer" onClick={handleSubmit}>Listo</button>
         </div>
     );
 }
