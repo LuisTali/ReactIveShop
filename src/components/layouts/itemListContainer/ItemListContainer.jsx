@@ -28,13 +28,7 @@ const ItemListContainer = ({type, theme, productsInCart, setProductsInCart}) =>{
     const handleAdd = (item) =>{
         if(productsInCart.length > 0){ //Si carro no esta vacio
 
-            if (item.typeof=='foods'){ //Si este producto es de tipo comida 
-                let newItem = {idCart:quantityCart,...item,quantity:1};
-                setQuantityCart(quantityCart+1);
-                let newProducts = [...productsInCart];
-                newProducts.push(newItem);
-                setProductsInCart(newProducts)
-            }else{
+            
                 let productAlready = productsInCart.find((product) => product.name == item.name);
                 if(productAlready){ //Si hay un producto con el mismo nombre en el carro
                     productsInCart.map((product) => {
@@ -50,7 +44,7 @@ const ItemListContainer = ({type, theme, productsInCart, setProductsInCart}) =>{
                     newProducts.push(newProduct);
                     setProductsInCart(newProducts)
                 } 
-            } 
+             
         }else{ //Si el carro esta vacio creo un item nuevo y lo pusheo al arreglo sin mas
             let newProducts = [];
             let newProduct = {idCart:quantityCart,...item,quantity:1}
@@ -58,7 +52,6 @@ const ItemListContainer = ({type, theme, productsInCart, setProductsInCart}) =>{
             newProducts.push(newProduct);
             setProductsInCart(newProducts);
         }
-        console.log(productsInCart);
     }
     
     return <div className= {theme ? 'itemListContainer bodyLight' : 'itemListContainer bodyDark'}>

@@ -1,9 +1,8 @@
-.cartList{
 
-}
 .shoppingCartList{
     width: 70%;
     margin-left: 15%;
+    min-height: 100vh;
 }
 .cartList .shoppingCartList .cartItem{
     display: flex;
@@ -13,15 +12,22 @@
     align-items: center;
     cursor: pointer;
 }
-.cartItem h3{
-    width: 130px;
+.cartItem h4{
+    display: flex;
+    width: 25%;
+    justify-content: center;
 }
-.cartItem #price{
-    width: 40px;
+.cartItem .removeBtn{
+    width: 30%;
+    border-radius: 10px;
+}
+.cartItem .name{
+    justify-content: left;
+    text-align: left;
 }
 .showInfo{
     display: normal;
-    margin-left: 2rem;
+    margin-left:2rem;
 }
 .notShow{
     display: none;

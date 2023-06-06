@@ -19,6 +19,7 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
             if(e.target.checked){
                 let productUpdated = {...product};
                 productUpdated.extras.push(e.target.name);
+                productUpdated.price += Number(e.target.value);
                 setProduct(productUpdated);
             } 
             else{
@@ -59,7 +60,6 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
                 navigate('/comidas');
             }else{
                 let newProducts = [...productsInCart];
-                //newProducts.splice(product.idCart,1);
                 setProductsInCart(newProducts);
                 navigate('/comidas');
             }
@@ -73,28 +73,28 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
             <h3>${product.price}</h3>
             <div className="editInfo">
                 <div className="inputGroup">
-                  <label>Extra Medallon</label>
-                  <input className="checkbox" type="checkbox" name="extraMedallon" id="" onChange={(e)=>handleChange(e)}/>  
+                  <label>Extra Medallon $50</label>
+                  <input className="checkbox" type="checkbox" name="ExtraMedallon" value={50} id="" onChange={(e)=>handleChange(e)}/>  
                 </div>
                 <div className="inputGroup">
-                <label>Extra Bacon</label>
-                <input className="checkbox" type="checkbox" name="extraBacon" id="" onChange={(e)=>handleChange(e)}/>
+                <label>Extra Bacon $40</label>
+                <input className="checkbox" type="checkbox" name="ExtraBacon" value={40} id="" onChange={(e)=>handleChange(e)}/>
                 </div>
                 <div className="inputGroup">
-                    <label>Extra Cheddar</label>
-                    <input className="checkbox" type="checkbox" name="extraCheddar" id="" onChange={(e)=>handleChange(e)}/>
+                    <label>Extra Cheddar $30</label>
+                    <input className="checkbox" type="checkbox" name="ExtraCheddar" value={30} id="" onChange={(e)=>handleChange(e)}/>
                 </div>
                 <div className="inputGroup">
-                    <label>Extra Tomate</label>
-                    <input className="checkbox" type="checkbox" name="extraTomate" id="" onChange={(e)=>handleChange(e)}/>  
+                    <label>Extra Tomate $20</label>
+                    <input className="checkbox" type="checkbox" name="ExtraTomate" value={20} id="" onChange={(e)=>handleChange(e)}/>  
                 </div>
                 <div className="inputGroup">
-                    <label>Extra Lechuga</label>
-                    <input className="checkbox" type="checkbox" name="extraLechuga" id="" onChange={(e)=>handleChange(e)}/>    
+                    <label>Extra Lechuga $20</label>
+                    <input className="checkbox" type="checkbox" name="ExtraLechuga" value={20} id="" onChange={(e)=>handleChange(e)}/>    
                 </div>
                 <div className="inputGroup">
-                    <label>Extra Pepinillo</label>
-                    <input className="checkbox" type="checkbox" name="extraPepinillo" id="" onChange={(e)=>handleChange(e)}/>    
+                    <label>Extra Pepinillo $30</label>
+                    <input className="checkbox" type="checkbox" name="ExtraPepinillo" value={30} id="" onChange={(e)=>handleChange(e)}/>    
                 </div>
                 <div className="selectGroup">
                     <label>Seleccione un aderezo</label>

@@ -2,7 +2,8 @@ export const products = [
     {
         id:1,
         name:'Coca',
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685459129/ReactIveShop/i8tbzzkar718rskkr9bi.jpg',price:300,
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685459129/ReactIveShop/i8tbzzkar718rskkr9bi.jpg',
+        price:300,
         type:'soda'
     },
     {
