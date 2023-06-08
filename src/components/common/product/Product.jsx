@@ -1,23 +1,30 @@
-import React from "react";
+import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { useCount } from "../../hooks/useCount.jsx";
+import SetQuantity from '../setQuantity/SetQuantity.jsx';
 import './Product.css'
 
 const Product = ({id, name, imgsrc, handleAdd, price, category, quantityCart}) =>{
+    const {count,decrement,increment,reset} = useCount(1,15);
+    const [showQuantity,setShowQuantity] = useState(false);
     const navigate = useNavigate();
 
     const handleAddItem = () =>{
         if(category == 'drinks'){
-            let newItem = {id,name,imgsrc,price,typeof:'drink'};
+            setShowQuantity(false);
+            reset();
+            let newItem = {id,name,imgsrc,price,typeof:'drink',quantity:count};
             handleAdd(newItem);
         }else if(category == 'foods'){
             navigate(`/comidas/${id}`);
         }
     }
 
-    return <article key={id} className='item' onClick={()=>handleAddItem()}>
+    return <article key={id} className='item'>
         <b>${price}</b>
         <h4>{name}</h4>
-        <img src={imgsrc}/>
+        <img src={imgsrc}  onClick={()=>{category == 'drinks' ? setShowQuantity(!showQuantity) : handleAddItem() }}/>
+        {showQuantity && <SetQuantity handleSubmit={handleAddItem} count={count} increment={increment} decrement={decrement}/>}
     </article>;
 }
 export default Product;

@@ -26,28 +26,30 @@ const ItemListContainer = ({type, theme, productsInCart, setProductsInCart}) =>{
     },[type])
 
     const handleAdd = (item) =>{
+        console.log(item);
+        let totalPrice = item.quantity * item.price;
         if(productsInCart.length > 0){ //Si carro no esta vacio
-
-            
-                let productAlready = productsInCart.find((product) => product.name == item.name);
-                if(productAlready){ //Si hay un producto con el mismo nombre en el carro
-                    productsInCart.map((product) => {
-                        if(product.name === item.name) product.quantity += 1; 
-                    })
-                    //Entonces sumo 1 a cantidad de ese producto y actualizo el carrito
-                    let newProducts = [...productsInCart];
-                    setProductsInCart(newProducts)
-                }else{
-                    let newProduct = {idCart:quantityCart,...item,quantity:1}
-                    setQuantityCart(quantityCart+1);
-                    let newProducts = [...productsInCart];
-                    newProducts.push(newProduct);
-                    setProductsInCart(newProducts)
-                } 
-             
+            let productAlready = productsInCart.find((product) => product.name == item.name);
+            if(productAlready){ //Si hay un producto con el mismo nombre en el carro
+                productsInCart.map((product) => {
+                    if(product.name === item.name){
+                        product.quantity += item.quantity; 
+                        product.price += totalPrice;
+                    } 
+                })
+                //Entonces sumo 1 a cantidad de ese producto y actualizo el carrito
+                let newProducts = [...productsInCart];
+                setProductsInCart(newProducts)
+            }else{
+                let newProduct = {idCart:quantityCart,...item,price:totalPrice};
+                setQuantityCart(quantityCart + item.quantity);
+                let newProducts = [...productsInCart];
+                newProducts.push(newProduct);
+                setProductsInCart(newProducts)
+            } 
         }else{ //Si el carro esta vacio creo un item nuevo y lo pusheo al arreglo sin mas
             let newProducts = [];
-            let newProduct = {idCart:quantityCart,...item,quantity:1}
+            let newProduct = {idCart:quantityCart,...item,quantity:item.quantity,price: totalPrice}
             setQuantityCart(quantityCart+1);
             newProducts.push(newProduct);
             setProductsInCart(newProducts);

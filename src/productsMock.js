@@ -92,27 +92,27 @@ export const products = [
         id:14,
         name:'Burguer HealT', //Updated Img
         imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1686059060/ReactIveShop/Comidas/iubvc1e91zjlcjcjezbi.png',
-        price:750,
+        price:800,
         type:'food'
     },
     {
         id:15,
         name:'VegiBurguer', //Updated Img
         imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1686058770/ReactIveShop/Comidas/hov1rnoujclerqvqvb8b.png',
-        price:600,
+        price:850,
         type:'food'
     },
     {
         id:16,
         name:'ChickenBurguer', //Updated Img
         imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1686058665/ReactIveShop/Comidas/zjpvizbfgwu2kgmkr3mj.png',
-        price:300,
+        price:800,
         type:'food'
     },
     {
         id:17,
-        name:'TriBurguer', //Updated Img
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1686059130/ReactIveShop/Comidas/jlnlxpjxpppdffl8zth4.png',
+        name:'CaptainBlack', //Updated Img
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1686234179/ReactIveShop/Comidas/zxzsfujhm5dopouf6ewp.png',
         price:1200,
         type:'food'
     }   

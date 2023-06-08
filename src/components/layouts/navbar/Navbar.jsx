@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import CardWidget from '../../common/cardWidget/CardWidget.jsx'
 import './Navbar.css'
 
@@ -15,14 +15,16 @@ const Navbar = ({theme,setTheme,productsInCart,setProductsInCart}) =>{
         console.log('click');
     }
 
-    return <nav className={theme ? 'light' : 'dark'}>
-        <img src="https://res.cloudinary.com/dvcmeanik/image/upload/v1684852170/iuruqdqub5i4mgjw3cfs.jpg"/>
-        
-        <Link to='/bebidas' className={theme ? 'light' : 'dark'}><LocalDrinkIcon/>Bebidas</Link>
-        <Link to='/comidas' className={theme ? 'light' : 'dark'}><LunchDiningIcon/>Comidas</Link>
-        <a onClick={handleClick}><ElectricBoltIcon/>Tecnologia</a>
-        <a onClick={()=>setTheme(!theme)}><DarkModeIcon/>{theme ? 'DarkTheme' : 'LightTheme'}</a>
-        <CardWidget theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
-    </nav>
+    return <>
+        <nav className={theme ? 'light' : 'dark'}>
+            <img src="https://res.cloudinary.com/dvcmeanik/image/upload/v1684852170/iuruqdqub5i4mgjw3cfs.jpg"/>
+            
+            <Link to='/bebidas' className={theme ? 'light' : 'dark'}><LocalDrinkIcon/>Bebidas</Link>
+            <Link to='/comidas' className={theme ? 'light' : 'dark'}><LunchDiningIcon/>Comidas</Link>
+            <a onClick={handleClick}><ElectricBoltIcon/>Tecnologia</a>
+            <a onClick={()=>setTheme(!theme)}><DarkModeIcon/>{theme ? 'DarkTheme' : 'LightTheme'}</a>
+            <CardWidget theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
+        </nav>
+    </> 
 }
 export default Navbar;

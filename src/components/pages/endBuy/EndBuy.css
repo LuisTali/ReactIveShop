@@ -1,18 +1,23 @@
-
+.cartList{
+    min-height: 100vh;
+    padding: 1rem;
+}
 .shoppingCartList{
     width: 70%;
-    margin-left: 15%;
-    min-height: 100vh;
+    margin-left: 18%;
 }
 .cartList .shoppingCartList .cartItem{
     display: flex;
     width: 100%;
-    margin: 1rem;
+    margin: 1rem 1rem 1rem 1rem;
     justify-content: space-between;
     align-items: center;
-    cursor: pointer;
 }
-.cartItem h4{
+.cartList h2{
+    text-align: center;
+    margin-top: 5rem;
+}
+.cartItem h3{
     display: flex;
     width: 25%;
     justify-content: center;
@@ -22,8 +27,8 @@
     border-radius: 10px;
 }
 .cartItem .name{
+    cursor: pointer;
     justify-content: left;
-    text-align: left;
 }
 .showInfo{
     display: normal;

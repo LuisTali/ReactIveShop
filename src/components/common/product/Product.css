@@ -11,6 +11,28 @@
     border-radius: 2.5px;
     box-shadow: 0px 3px 10px 1px white;
     cursor: pointer;
+    position: relative;
+}
+.item .setQuantity{
+  position: absolute;
+  display: flex;
+  background: rgb(200,200,200);
+  width: 100px;
+}
+.item .setQuantity button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.item .setQuantity .info{
+  display: flex;
+  flex-direction: column;
+}
+.item .setQuantity .info button{
+  width: fit-content;
+  padding: 0rem 0.25rem;
+  text-align: center;
 }
 .item img{
     height: 90px;  

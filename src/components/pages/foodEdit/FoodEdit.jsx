@@ -1,10 +1,13 @@
 import React, { useState,useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../../../productsMock.js";
+import { useCount } from '../../hooks/useCount.jsx';
+import SetQuantity from "../../common/setQuantity/SetQuantity.jsx";
 import './FoodEdit.css';
 
 const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
     const {id} = useParams();
+    const {count,decrement,increment,reset} = useCount(1,15);
     const [product,setProduct] = useState({});
     const navigate = useNavigate();
 
@@ -26,6 +29,7 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
                 let indexExtra = product.extras.indexOf((extra)=>extra == e.target.name);
                 let productUpdated = {...product};
                 productUpdated.extras.splice(indexExtra,1)
+                productUpdated.price -= Number(e.target.value);
                 setProduct(productUpdated);
             } 
         }else if(e.target.type == 'select-one'){
@@ -36,41 +40,43 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
 
     const handleSubmit = () =>{
         let flag = false;
+        let totalPrice = count * product.price;
         if(!product.salsa){
             const productUpdated = {...product,salsa:'sin salsa'}
             setProduct(productUpdated);
         }
-        let product1 = {idCart:productsInCart.length,...product,quantity:1};
+        let product1 = {idCart:productsInCart.length,...product,price:totalPrice,quantity:count};
+        
         for(const item of productsInCart){
             if(item.name == product1.name){
-                let temporaryProduct = {idCart:item.idCart,...product,quantity:item.quantity,};
-                console.log(temporaryProduct);
+                let temporaryProduct = {idCart:item.idCart,...product,price:item.price,quantity:item.quantity};
                 if(JSON.stringify(item) == JSON.stringify(temporaryProduct)){
-                    item.quantity++;
+                    item.quantity += count;
+                    item.price += totalPrice;
                     flag=true;
                     break;
                 }
                 if(flag) break;
             }
         }
-            if(!flag){
-                let newProductsInCart = [...productsInCart];
-                newProductsInCart.push(product1);
-                setProductsInCart(newProductsInCart);
-                navigate('/comidas');
-            }else{
-                let newProducts = [...productsInCart];
-                setProductsInCart(newProducts);
-                navigate('/comidas');
-            }
+        if(!flag){
+            let newProductsInCart = [...productsInCart];
+            newProductsInCart.push(product1);
+            setProductsInCart(newProductsInCart);
+            navigate('/comidas');
+        }else{
+            let newProducts = [...productsInCart];
+            setProductsInCart(newProducts);
+            navigate('/comidas');
         }
+    }
     
     return(
         <div className={theme ? "foodEdit bodyLight" : "foodEdit bodyDark"}>
             {id}
             <h2>{product.name}</h2>
             <img src={product.imgsrc}/>
-            <h3>${product.price}</h3>
+            <h3>${count * product.price}</h3>
             <div className="editInfo">
                 <div className="inputGroup">
                   <label>Extra Medallon $50</label>
@@ -105,8 +111,8 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
                         <option value='barbacoa'>barbacoa</option>
                     </select>
                 </div>
+            <SetQuantity count={count} increment={increment} decrement={decrement} handleSubmit={handleSubmit}/>    
             </div>
-            <button className="addBurguer" onClick={handleSubmit}>Listo</button>
         </div>
     );
 }

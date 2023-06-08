@@ -61,6 +61,22 @@
     padding: 0.5rem 1rem;
     width: 100px;
 }
+.editInfo .setQuantity{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    width: 20%;
+    margin: 0.5rem;
+}
+.editInfo .setQuantity button{
+    padding: 0.25rem 1rem;
+    border-radius: 10px;
+    border: 2px solid black;
+    width: 100px;
+}
+.editInfo .setQuantity .info{
+    text-align: center;
+}
 
 @media screen and (max-width:500px){
     .foodEdit img{

@@ -2,21 +2,22 @@ import React from "react";
 import EndBuyItem from "./EndBuyItem.jsx";
 import './EndBuy.css';
 
-const EndBuy = ({productsInCart, setProductsInCart}) =>{
+const EndBuy = ({theme,productsInCart, setProductsInCart}) =>{
     const handleRemove = (value) =>{
         let newProducts = productsInCart.filter((product) => product.idCart != value)
         setProductsInCart(newProducts);
     }
-    return <div className="cartList">
-        <ul className="shoppingCartList">
-        <div className="cartItem">
-            <h4>Name</h4>
-            <h4>Quantity</h4>
-            <h4 id="price">Price</h4>
-            <h4>Remove</h4>
-        </div>
+    return <div className={theme ? 'cartList light bodyLight' : 'cartList dark bodyDark'}>
+        {productsInCart.length > 0 && <ul className="shoppingCartList">
+            <div className="cartItem">
+                <h3>Name</h3>
+                <h3>Quantity</h3>
+                <h3 id="price">Price</h3>
+                <h3>Remove</h3>
+            </div>
             {productsInCart.map((product)=><EndBuyItem {...product} handleRemove={handleRemove}/>)}
-        </ul>
+        </ul>}
+        {productsInCart.length == 0 && <h2>No tienes productos en el carrito</h2>}
     </div>
 }
 

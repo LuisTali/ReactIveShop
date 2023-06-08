@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Navbar from './components/layouts/navbar/Navbar.jsx'
 import ItemListContainer from './components/layouts/itemListContainer/ItemListContainer.jsx'
-import Footer from './components/layouts/footer/Footer.jsx'
 import HomePage from './components/pages/home/HomePage.jsx';
 import EndBuy from './components/pages/endBuy/EndBuy.jsx';
 import FoodEdit from './components/pages/foodEdit/FoodEdit.jsx';
+import Layout from './components/layouts/Layout.jsx';
 import './App.css';
 
 
@@ -18,16 +17,30 @@ function App() {
   //<div className={theme ? 'bodyLight' : 'bodyDark'}>
   return (
     <Router>
-        <Navbar theme={theme} setTheme={setTheme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
         <Routes>
-          <Route exact path='/' element={<HomePage greeting={greeting}/>}/>
-          <Route path='/bebidas' element={<ItemListContainer theme={theme} type={'drinks'} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/> 
-          <Route path='/comidas' element={<ItemListContainer theme={theme} type={'foods'} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/>
-          <Route path='/comidas/:id' element={<FoodEdit theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/>
-          <Route path='/endBuy' element={<EndBuy productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>}/>
-          <Route path='/*' element={<HomePage greeting={'Oops, we could not find this page'}/>}/>
+          <Route element={
+            <Layout theme={theme} setTheme={setTheme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
+          }>
+            <Route exact path='/' element={
+              <HomePage greeting={greeting}/>
+            }/>
+            <Route path='/bebidas' element={
+              <ItemListContainer theme={theme} type={'drinks'} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
+            }/> 
+            <Route path='/comidas' element={
+              <ItemListContainer theme={theme} type={'foods'} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
+            }/>
+            <Route path='/comidas/:id' element={
+              <FoodEdit theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
+            }/>
+            <Route path='/endBuy' element={
+              <EndBuy theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
+            }/>
+            <Route path='/*' element={
+              <HomePage greeting={'Oops, we could not find this page'}/>
+            }/>
+          </Route>
         </Routes>
-        <Footer theme={theme}/>
     </Router>
   )
 }
