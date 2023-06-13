@@ -1,12 +1,13 @@
 import React,{useEffect, useState} from 'react';
+import { useParams } from 'react-router-dom';
 import { products } from '../../../productsMock.js';
 import Fridge from '../../common/fridge/Fridge.jsx';
 import FoodContainer from '../../common/foodContainer/FoodContainer.jsx';
 import './ItemListContainer.css'
 
 
-const ItemListContainer = ({type, theme, productsInCart, setProductsInCart}) =>{
-
+const ItemListContainer = ({theme, productsInCart, setProductsInCart}) =>{
+    const {categoria} = useParams();
     const [items,setItems] = useState(products);
     const [sodas,setSodas] = useState([]);
     const [energyDrinks,setEnergyDrinks] = useState([]);
@@ -14,16 +15,16 @@ const ItemListContainer = ({type, theme, productsInCart, setProductsInCart}) =>{
     const [quantityCart,setQuantityCart] = useState(productsInCart.length);
 
     useEffect(()=>{
-        if(type == 'drinks'){
+        if(categoria == 'drinks'){
             let sodas = items.filter((item) => item.type == 'soda');
             let energyDrinks = items.filter((item) => item.type == 'energydrink');
             setSodas(sodas);
             setEnergyDrinks(energyDrinks);
-        }else if(type = 'foods'){
+        }else if(categoria == 'foods'){
             let foods = items.filter((item) => item.type == 'food');
             setFoods(foods);
         }
-    },[type])
+    },[categoria])
 
     const handleAdd = (item) =>{
         console.log(item);
@@ -58,13 +59,13 @@ const ItemListContainer = ({type, theme, productsInCart, setProductsInCart}) =>{
     
     return <div className= {theme ? 'itemListContainer bodyLight' : 'itemListContainer bodyDark'}>
         <h2>This is ReactIve Shop</h2>
-        {type =='drinks' && 
+        {categoria =='drinks' && 
         <div className='fridges'>
             <Fridge title={'Coca Cola'} items={sodas} handleAdd={handleAdd}/>
             <Fridge title={'Energizantes'} items={energyDrinks} handleAdd={handleAdd}/>
         </div>
         }
-        {type == 'foods' && 
+        {categoria == 'foods' && 
         <div className='foodContainers'>
             <FoodContainer items={foods} quantityCart={quantityCart} handleAdd={handleAdd}/>
         </div>

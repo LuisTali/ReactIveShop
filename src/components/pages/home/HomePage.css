@@ -1,7 +1,7 @@
 .homepage{
     display: flex;
     flex-direction: column;
-    height: 93vh;
+    height: 100vh;
     justify-content: center;
     align-items: center;
 }

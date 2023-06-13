@@ -1,5 +1,6 @@
 import React from "react";
 import EndBuyItem from "./EndBuyItem.jsx";
+import Form from "../form/Form.jsx";
 import './EndBuy.css';
 
 const EndBuy = ({theme,productsInCart, setProductsInCart}) =>{
@@ -18,6 +19,7 @@ const EndBuy = ({theme,productsInCart, setProductsInCart}) =>{
             {productsInCart.map((product)=><EndBuyItem {...product} handleRemove={handleRemove}/>)}
         </ul>}
         {productsInCart.length == 0 && <h2>No tienes productos en el carrito</h2>}
+        {productsInCart.length > 0 && <Form/>}
     </div>
 }
 

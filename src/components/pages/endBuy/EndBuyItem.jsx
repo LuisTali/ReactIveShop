@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 const EndBuyItem = ({idCart,name,quantity,price,extras,salsa,type,handleRemove}) =>{
     const [show,setShow] = useState(false);
     if(salsa == undefined && type == 'food') salsa = 'sin aderezo';

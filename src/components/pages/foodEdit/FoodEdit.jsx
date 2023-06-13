@@ -63,11 +63,11 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
             let newProductsInCart = [...productsInCart];
             newProductsInCart.push(product1);
             setProductsInCart(newProductsInCart);
-            navigate('/comidas');
+            navigate('/categorias/foods');
         }else{
             let newProducts = [...productsInCart];
             setProductsInCart(newProducts);
-            navigate('/comidas');
+            navigate('/categorias/foods');
         }
     }
     
