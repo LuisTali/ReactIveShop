@@ -16,8 +16,9 @@
 .item .setQuantity{
   position: absolute;
   display: flex;
+  flex-direction: column;
   background: rgb(200,200,200);
-  width: 100px;
+  width: 100%;
 }
 .item .setQuantity button{
   display: flex;
@@ -27,12 +28,18 @@
 }
 .item .setQuantity .info{
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  justify-content: space-between;
+  height: 70%;
 }
 .item .setQuantity .info button{
   width: fit-content;
   padding: 0rem 0.25rem;
   text-align: center;
+  width: 30%;
+}
+.item .setQuantity .addBtn{
+  width: 100%;
 }
 .item img{
     height: 90px;  

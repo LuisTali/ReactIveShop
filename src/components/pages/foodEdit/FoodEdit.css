@@ -63,9 +63,9 @@
 }
 .editInfo .setQuantity{
     display: flex;
-    align-items: start;
-    justify-content: space-between;
-    width: 20%;
+    align-items: center;
+    flex-direction: column;
+    width: 40%;
     margin: 0.5rem;
 }
 .editInfo .setQuantity button{
@@ -76,6 +76,9 @@
 }
 .editInfo .setQuantity .info{
     text-align: center;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 @media screen and (max-width:500px){
@@ -86,6 +89,28 @@
     .editInfo{
         flex-wrap: nowrap;
         flex-direction: column;
+        align-items: center;
+    }
+    .inputGroup{
+        width: 100%;
+        padding: 1rem;
+        white-space: nowrap;
+    }
+    .inputGroup label{
+        width: 200px;
+    }
+    .editInfo .setQuantity{
+        width: 80%;
+    }
+    .editInfo .setQuantity .info{
+        margin-bottom: 0.5rem;
+    }
+    .editInfo .setQuantity .info button{
+        width: 30%;
+    }
+    .selectGroup label{
+        font-size: 1rem;
+        display: flex;
         align-items: center;
     }
 }
