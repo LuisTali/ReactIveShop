@@ -83,24 +83,24 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
                   <input className="checkbox" type="checkbox" name="ExtraMedallon" value={50} id="" onChange={(e)=>handleChange(e)}/>  
                 </div>
                 <div className="inputGroup">
-                <label>Extra Bacon $40</label>
-                <input className="checkbox" type="checkbox" name="ExtraBacon" value={40} id="" onChange={(e)=>handleChange(e)}/>
-                </div>
-                <div className="inputGroup">
                     <label>Extra Cheddar $30</label>
                     <input className="checkbox" type="checkbox" name="ExtraCheddar" value={30} id="" onChange={(e)=>handleChange(e)}/>
                 </div>
                 <div className="inputGroup">
-                    <label>Extra Tomate $20</label>
-                    <input className="checkbox" type="checkbox" name="ExtraTomate" value={20} id="" onChange={(e)=>handleChange(e)}/>  
+                    <label>Extra Pepinillo $30</label>
+                    <input className="checkbox" type="checkbox" name="ExtraPepinillo" value={30} id="" onChange={(e)=>handleChange(e)}/>    
                 </div>
                 <div className="inputGroup">
                     <label>Extra Lechuga $20</label>
                     <input className="checkbox" type="checkbox" name="ExtraLechuga" value={20} id="" onChange={(e)=>handleChange(e)}/>    
                 </div>
                 <div className="inputGroup">
-                    <label>Extra Pepinillo $30</label>
-                    <input className="checkbox" type="checkbox" name="ExtraPepinillo" value={30} id="" onChange={(e)=>handleChange(e)}/>    
+                <label>Extra Bacon $40</label>
+                <input className="checkbox" type="checkbox" name="ExtraBacon" value={40} id="" onChange={(e)=>handleChange(e)}/>
+                </div>
+                <div className="inputGroup">
+                    <label>Extra Tomate $20</label>
+                    <input className="checkbox" type="checkbox" name="ExtraTomate" value={20} id="" onChange={(e)=>handleChange(e)}/>  
                 </div>
                 <div className="selectGroup">
                     <label>Seleccione un aderezo</label>

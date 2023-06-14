@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import emailjs from '@emailjs/browser';
+import './Form.css'
 
-const Form = ({message,productsInCart,setFormAvailable,setProductsInCart}) =>{
-    const [userData,setUserData] = useState({to_name:'',reply_to:'',to_email:''});
+const Form = ({theme,message,productsInCart,setFormAvailable,setProductsInCart}) =>{
+    const [userData,setUserData] = useState({to_name:'',reply_to:'',to_email:'',adress:''});
     const navigate = useNavigate();
 
     const handleSubmit = (e) =>{
@@ -13,6 +14,8 @@ const Form = ({message,productsInCart,setFormAvailable,setProductsInCart}) =>{
             emailjs.sendForm('envServiceId', 'envTemplateId', e.target, 'envPublicKey')
             .then((result)=>{
                 console.log(result);
+                setProductsInCart([]);
+                navigate('/');
             }, (error)=> {
                 console.log(error);
             });
@@ -20,8 +23,7 @@ const Form = ({message,productsInCart,setFormAvailable,setProductsInCart}) =>{
         else{
             alert('Ingrese formato email valido');
         }
-        setProductsInCart([]);
-        navigate('/');
+        
     }
 
     const handleChange = (e) =>{
@@ -29,19 +31,23 @@ const Form = ({message,productsInCart,setFormAvailable,setProductsInCart}) =>{
         console.log(userData);
     }
 
-    return <div>
-        <button onClick={()=>setFormAvailable(false)}>back</button>
+    return <div className={theme ? 'form light bodyLight' : 'form dark bodyDark'}>
+        <button className="backBtn" onClick={()=>setFormAvailable(false)}>back</button>
         <form onSubmit={handleSubmit}>
             <div className="inputGroup">
-                <label>Ingrese Nombre Completo</label>
+                <label>Nombre Completo</label>
                 <input type="text" name="to_name" onChange={handleChange}/>
             </div>
             <div className="inputGroup">
-                <label>Ingrese Email</label>
+                <label>Email</label>
                 <input type="text" name="to_email" onChange={handleChange}/>
             </div>
-            <input type="text" style={{display:'none'}} name="message" value={message}/>
-            <input type="text" style={{display:'none'}} name="reply_to" value='taliercioluis1@gmail.com'/>
+            <div className="inputGroup">
+                <label>Direccion</label>
+                <input type="text" name="adress" onChange={handleChange}/>
+            </div>
+            <input type="text" readOnly style={{display:'none'}} name="message" value={message}/>
+            <input type="text" readOnly style={{display:'none'}} name="reply_to" value='taliercioluis1@gmail.com'/>
             <button type="submit">comprar</button>
         </form>
     </div>

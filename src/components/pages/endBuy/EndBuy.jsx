@@ -25,8 +25,8 @@ const EndBuy = ({theme,productsInCart, setProductsInCart}) =>{
         if(productsInCart.length == 0) setFormAvailable(false);
     },[productsInCart]);
 
-    return <>
-    <div className={theme ? 'cartList light bodyLight' : 'cartList dark bodyDark'}>
+    if(formAvailable) return <Form theme={theme} message={message} productsInCart={productsInCart} setFormAvailable={setFormAvailable} setProductsInCart={setProductsInCart}/>
+    else return <div className={theme ? 'cartList light bodyLight' : 'cartList dark bodyDark'}>
         {productsInCart.length > 0 && <ul className="shoppingCartList">
             <div className="cartItem">
                 <h3>Name</h3>
@@ -36,11 +36,9 @@ const EndBuy = ({theme,productsInCart, setProductsInCart}) =>{
             </div>
             {productsInCart.map((product)=><EndBuyItem {...product} handleRemove={handleRemove}/>)}
         </ul>}
-        {productsInCart.length > 0 && <button onClick={()=>handleConfirm()}>confirmar</button>}
+        {productsInCart.length > 0 && <button className='confirmBtn' onClick={()=>handleConfirm()}>confirmar</button>}
         {productsInCart.length == 0 && <h2>No tienes productos en el carrito</h2>}
-        {formAvailable && <Form message={message} productsInCart={productsInCart} setFormAvailable={setFormAvailable} setProductsInCart={setProductsInCart}/>}
     </div>
-    </>
 }
 
 export default EndBuy;

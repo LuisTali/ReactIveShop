@@ -1,10 +1,12 @@
 .cartList{
     min-height: 100vh;
     padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .shoppingCartList{
     width: 70%;
-    margin-left: 18%;
 }
 .cartList .shoppingCartList .cartItem{
     display: flex;
@@ -16,6 +18,12 @@
 .cartList h2{
     text-align: center;
     margin-top: 5rem;
+}
+.cartList .confirmBtn{
+    margin: 2rem;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-weight: 500;
 }
 .cartItem h3{
     display: flex;

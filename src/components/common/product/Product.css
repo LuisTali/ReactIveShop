@@ -10,7 +10,6 @@
     justify-self: center;
     border-radius: 2.5px;
     box-shadow: 0px 3px 10px 1px white;
-    cursor: pointer;
     position: relative;
 }
 .item .setQuantity{
@@ -45,6 +44,7 @@
     height: 90px;  
     background-position: center center;
     object-fit: contain; 
+    cursor: pointer;
 }
 
 @media screen and (max-width:400px){
