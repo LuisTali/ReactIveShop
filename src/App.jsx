@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React,{ useState } from 'react'
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import ItemListContainer from './components/layouts/itemListContainer/ItemListContainer.jsx'
 import HomePage from './components/pages/home/HomePage.jsx';
@@ -8,11 +8,12 @@ import Layout from './components/layouts/Layout.jsx';
 import { menuRoutes } from './routes/menuRoutes.js';
 import './App.css';
 
+export const AppContext = React.createContext();
+
 
 function App() {
   const [theme,setTheme] = useState(false); //themeFalse == darkMode; themeTrue == lightMode
   const [productsInCart,setProductsInCart] = useState([]); //Comparto los productos en el carrito con Navbar y ItemListContainer
-
   const greeting = 'Hola, bienvenido a ReactiveShop'
   
   //<div className={theme ? 'bodyLight' : 'bodyDark'}>
@@ -28,7 +29,6 @@ function App() {
             <Route path='/categorias/:categoria' element={
               <ItemListContainer theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
             }/> 
-            +
             <Route path='/comidas/:id' element={
               <FoodEdit theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
             }/>
