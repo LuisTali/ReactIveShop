@@ -4,7 +4,7 @@ import { useCount } from "../../hooks/useCount.jsx";
 import SetQuantity from '../setQuantity/SetQuantity.jsx';
 import './Product.css'
 
-const Product = ({id, name, imgsrc, handleAdd, price, category, quantityCart}) =>{
+const Product = ({id, name, imgsrc, handleAdd, price, category}) =>{
     const {count,decrement,increment,reset} = useCount(1,15);
     const [showQuantity,setShowQuantity] = useState(false);
     const navigate = useNavigate();

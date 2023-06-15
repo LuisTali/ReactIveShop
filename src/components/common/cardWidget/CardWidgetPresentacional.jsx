@@ -1,7 +1,8 @@
 import React from "react";
 
 const CardWidgetPresentacional = ({productsInCart,handleRemove}) =>{
-    return productsInCart.map((product)=> <li>
+    console.log(productsInCart);;
+    return productsInCart.map((product)=> <li id={product.idCart}>
         <h3>{product.name}</h3>
         <b>${product.price}</b>
         <b>{product.quantity}</b>

@@ -11,7 +11,7 @@ export const menuRoutes = [
     },
     {
         id: 'categoria',
-        path:'/categoria/:categoria',
+        path:'/categorias/:categoria',
         Element: ItemListContainer,
     },
     {
@@ -23,10 +23,5 @@ export const menuRoutes = [
         id:'endBuy',
         path:'/endBuy',
         Element: EndBuy,
-    },
-    {
-        id:'notFound',
-        path:'/*',
-        Element: HomePage,
     }
 ]

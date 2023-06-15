@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import EndBuyItem from "./EndBuyItem.jsx";
 import Form from "../form/Form.jsx";
+import {CartContext} from '../../../context/CartContext.jsx'
 import './EndBuy.css';
+import { ThemeContext } from "../../../context/ThemeContext.jsx";
 
-const EndBuy = ({theme,productsInCart, setProductsInCart}) =>{
+const EndBuy = () =>{
     const [formAvailable,setFormAvailable] = useState(false);
+    const {productsInCart,setProductsInCart,handleRemove} = useContext(CartContext);
+    const {theme} = useContext(ThemeContext);
     const [message,setMessage] = useState('');
 
-    const handleRemove = (value) =>{
+    const handleRemovee = (value) =>{
         let newProducts = productsInCart.filter((product) => product.idCart != value)
         setProductsInCart(newProducts);
     }
@@ -18,7 +22,6 @@ const EndBuy = ({theme,productsInCart, setProductsInCart}) =>{
             )} 
         )}</ul></div>`;
         setMessage(auxmessage);
-        console.log(auxmessage);
         setFormAvailable(true);
     }
     useEffect(()=>{
@@ -34,7 +37,7 @@ const EndBuy = ({theme,productsInCart, setProductsInCart}) =>{
                 <h3 id="price">Price</h3>
                 <h3>Remove</h3>
             </div>
-            {productsInCart.map((product)=><EndBuyItem {...product} handleRemove={handleRemove}/>)}
+            {productsInCart.map((product)=><EndBuyItem {...product} formAvailable={formAvailable} handleRemove={handleRemove}/>)}
         </ul>}
         {productsInCart.length > 0 && <button className='confirmBtn' onClick={()=>handleConfirm()}>confirmar</button>}
         {productsInCart.length == 0 && <h2>No tienes productos en el carrito</h2>}

@@ -1,11 +1,13 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect, useContext} from 'react';
 import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CardWidgetPresentacional from './CardWidgetPresentacional.jsx';
 import './CardWidget.css'
+import { CartContext } from '../../../context/CartContext.jsx';
 
-const CardWidget = ({theme, productsInCart, setProductsInCart}) =>{
+const CardWidget = ({theme}) =>{
     const navigate = useNavigate();    
+    const {productsInCart,setProductsInCart, handleRemove} = useContext(CartContext);
     const [showCart,setShowCart] = useState(false);
     const [cantItems,setCantItems] = useState(0);
 
@@ -16,11 +18,6 @@ const CardWidget = ({theme, productsInCart, setProductsInCart}) =>{
         }
         setCantItems(quantity);
     },[productsInCart])
-
-    const handleRemove = (value) =>{
-        let newProducts = productsInCart.filter((product) => product.idCart != value)
-        setProductsInCart(newProducts);
-    }
 
     const handleEndShopClick = () =>{
         setShowCart(false);

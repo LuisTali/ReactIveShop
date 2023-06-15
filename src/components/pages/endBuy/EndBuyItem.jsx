@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-const EndBuyItem = ({idCart,name,quantity,price,extras,salsa,type,handleRemove}) =>{
+
+const EndBuyItem = ({idCart,name,quantity,price,extras,salsa,type,handleRemove,formAvailable}) =>{
     const [show,setShow] = useState(false);
     if(salsa == undefined && type == 'food') salsa = 'sin aderezo';
+
     return <li>
             <div className="cartItem" >
                 <h3 className="name" onClick={()=>setShow(!show)}>{name}</h3>

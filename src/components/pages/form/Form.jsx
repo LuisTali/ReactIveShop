@@ -13,7 +13,6 @@ const Form = ({theme,message,productsInCart,setFormAvailable,setProductsInCart})
         if(validEmail.test(userData.to_email)){
             emailjs.sendForm('envServiceId', 'envTemplateId', e.target, 'envPublicKey')
             .then((result)=>{
-                console.log(result);
                 setProductsInCart([]);
                 navigate('/');
             }, (error)=> {

@@ -7,7 +7,8 @@ import FoodEdit from './components/pages/foodEdit/FoodEdit.jsx';
 import Layout from './components/layouts/Layout.jsx';
 import { menuRoutes } from './routes/menuRoutes.js';
 import './App.css';
-
+import CartContextProvider from './context/CartContext.jsx';
+import ThemeContextProvider from './context/ThemeContext.jsx';
 export const AppContext = React.createContext();
 
 
@@ -19,27 +20,18 @@ function App() {
   //<div className={theme ? 'bodyLight' : 'bodyDark'}>
   return (
     <Router>
+      <CartContextProvider>
+      <ThemeContextProvider>
         <Routes>
-          <Route element={
-            <Layout theme={theme} setTheme={setTheme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
-          }>
-            <Route exact path='/' element={
-              <HomePage theme={theme} greeting={greeting}/>
-            }/>
-            <Route path='/categorias/:categoria' element={
-              <ItemListContainer theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
-            }/> 
-            <Route path='/comidas/:id' element={
-              <FoodEdit theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
-            }/>
-            <Route path='/endBuy' element={
-              <EndBuy theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>
-            }/>
-            <Route path='/*' element={
-              <HomePage greeting={'Oops, we could not find this page'}/>
-            }/>
+          <Route element={ <Layout/> }>
+            {menuRoutes.map(({id,path,Element})=>{
+              return <Route key={id} path={path} element={<Element/>} />
+            })}
+            <Route path='/*' element={<HomePage/>}/>
           </Route>
         </Routes>
+      </ThemeContextProvider> 
+      </CartContextProvider>
     </Router>
   )
 }

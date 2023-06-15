@@ -14,8 +14,9 @@ const Navbar = ({theme,setTheme,productsInCart,setProductsInCart}) =>{
     return <>
         <nav className={theme ? 'light' : 'dark'}>
             <img onClick={()=>navigate('/')} src="https://res.cloudinary.com/dvcmeanik/image/upload/v1684852170/iuruqdqub5i4mgjw3cfs.jpg"/>
-            <Link to='/categorias/drinks' className={theme ? 'light' : 'dark'}><LocalDrinkIcon/>Bebidas</Link>
-            <Link to='/categorias/foods' className={theme ? 'light' : 'dark'}><LunchDiningIcon/>Comidas</Link>
+            {menuNavigate.map(({id,path,title,Icon})=>{
+                return <Link id={id} to={path} className={theme ? 'light' : 'dark'}><Icon/>{title}</Link>
+            })}
             <a onClick={()=>console.log('click')}><ElectricBoltIcon/>Tecnologia</a>
             <a onClick={()=>setTheme(!theme)}><DarkModeIcon/>{theme ? 'DarkTheme' : 'LightTheme'}</a>
             <CardWidget theme={theme} productsInCart={productsInCart} setProductsInCart={setProductsInCart}/>

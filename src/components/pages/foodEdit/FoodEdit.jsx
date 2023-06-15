@@ -1,18 +1,20 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { products } from "../../../productsMock.js";
 import { useCount } from '../../hooks/useCount.jsx';
 import SetQuantity from "../../common/setQuantity/SetQuantity.jsx";
 import './FoodEdit.css';
+import { CartContext } from "../../../context/CartContext.jsx";
+import { ThemeContext } from "../../../context/ThemeContext.jsx";
 
-const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
+const FoodEdit = () =>{
     const {id} = useParams();
     const {count,decrement,increment,reset} = useCount(1,15);
     const [product,setProduct] = useState({});
-    const navigate = useNavigate();
+    const {handleAddFoods} = useContext(CartContext);
+    const {theme} = useContext(ThemeContext);
 
     useEffect(()=>{
-        //let food = productsInCart.find((product) => product.idCart == id);
         let food = products.find((product)=>product.id == id);
         setProduct({...food,extras:[]});
     },[]);
@@ -38,39 +40,6 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
         }
     }
 
-    const handleSubmit = () =>{
-        let flag = false;
-        let totalPrice = count * product.price;
-        if(!product.salsa){
-            const productUpdated = {...product,salsa:'sin salsa'}
-            setProduct(productUpdated);
-        }
-        let product1 = {idCart:productsInCart.length,...product,price:totalPrice,quantity:count};
-        
-        for(const item of productsInCart){
-            if(item.name == product1.name){
-                let temporaryProduct = {idCart:item.idCart,...product,price:item.price,quantity:item.quantity};
-                if(JSON.stringify(item) == JSON.stringify(temporaryProduct)){
-                    item.quantity += count;
-                    item.price += totalPrice;
-                    flag=true;
-                    break;
-                }
-                if(flag) break;
-            }
-        }
-        if(!flag){
-            let newProductsInCart = [...productsInCart];
-            newProductsInCart.push(product1);
-            setProductsInCart(newProductsInCart);
-            navigate('/categorias/foods');
-        }else{
-            let newProducts = [...productsInCart];
-            setProductsInCart(newProducts);
-            navigate('/categorias/foods');
-        }
-    }
-    
     return(
         <div className={theme ? "foodEdit bodyLight" : "foodEdit bodyDark"}>
             {id}
@@ -111,7 +80,7 @@ const FoodEdit = ({theme,productsInCart,setProductsInCart}) =>{
                         <option value='barbacoa'>barbacoa</option>
                     </select>
                 </div>
-            <SetQuantity count={count} increment={increment} decrement={decrement} handleSubmit={handleSubmit}/>    
+            <SetQuantity count={count} product={product} increment={increment} decrement={decrement} handleSubmit={handleAddFoods}/>    
             </div>
         </div>
     );
