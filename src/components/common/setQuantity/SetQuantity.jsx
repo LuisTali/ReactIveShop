@@ -6,7 +6,7 @@ const SetQuantity = ({count,product,increment,decrement,handleSubmit}) =>{
     
     const handleAdd = () =>{
         handleSubmit(product,count); 
-        if(product.type == 'food'){
+        if(product.type && product.type == 'food'){
             navigate('/categorias/foods');
         }
     }

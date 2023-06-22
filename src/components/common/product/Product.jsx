@@ -20,7 +20,7 @@ const Product = ({id, name, imgsrc, handleAdd, price, category}) =>{
         }
     }
 
-    return <article key={id} className='item'>
+    return <article className='item'>
         <b>${price}</b>
         <h4>{name}</h4>
         <img src={imgsrc}  onClick={()=>{category == 'drinks' ? setShowQuantity(!showQuantity) : handleAddItem() }}/>

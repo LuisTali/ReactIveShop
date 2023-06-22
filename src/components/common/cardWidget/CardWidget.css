@@ -1,6 +1,4 @@
-#shoppingCart{
-    margin-left: 3rem;
-}
+
 .listShoppingCart{
     position: absolute;
     top: 0;
@@ -48,4 +46,12 @@
         margin-right:1%;
         margin-top: 6rem;
     }
+    .listShoppingCart ul li h3{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .listShoppingCart ul li b{
+        padding:0 0.5rem;
+    }
 }
+

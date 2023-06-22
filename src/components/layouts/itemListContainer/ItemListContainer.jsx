@@ -7,7 +7,6 @@ import './ItemListContainer.css'
 import { CartContext } from '../../../context/CartContext.jsx';
 import { ThemeContext } from '../../../context/ThemeContext.jsx';
 
-
 const ItemListContainer = () =>{
     const {categoria} = useParams();
     const {theme} = useContext(ThemeContext);
@@ -26,8 +25,14 @@ const ItemListContainer = () =>{
             let foods = items.filter((item) => item.type == 'food');
             setFoods(foods);
         }
-    },[categoria])
+    },[categoria]);
 
+    if(items.length == 0){
+        return <div className= {theme ? 'itemListContainer bodyLight' : 'itemListContainer bodyDark'}>
+        <h2>This is ReactIve Shop</h2>
+        <h3>Loading...</h3>
+        </div>
+    }
     return <div className= {theme ? 'itemListContainer bodyLight' : 'itemListContainer bodyDark'}>
         <h2>This is ReactIve Shop</h2>
         {categoria =='drinks' && 

@@ -1,6 +1,6 @@
 nav{
     display: flex;
-    justify-content: right;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: 1rem 1.25rem;
@@ -13,8 +13,51 @@ nav a{
 
 nav img{
     height: 40px;
-    margin-right: 50%;
     border-radius: 5px;
     padding: 0.5rem;
     background-color: white;
 }
+
+nav .navList{
+    display: flex;
+}
+nav .navList li{
+    display: flex;
+}
+nav .arrowMobile{
+    display: none;
+}
+
+@media screen and (max-width:700px){
+    nav .arrowMobile{
+        display: flex;
+    }
+
+    nav .navList{
+        position: absolute;
+        top: 0;
+        margin-top: 40px;
+        margin-left: 50%;
+        transform: translate(-50%);
+        flex-direction: column;
+        z-index: 999;
+        width: 80%;
+        padding: 1rem;
+    }
+
+    nav .navList{
+        
+    }
+    nav .navList.mobile{
+        display: none;
+        pointer-events: none;
+    }
+    nav .navList.mobile.show{
+        display: flex;
+        pointer-events: all;
+    }
+    nav .navList li a{
+        width: 100%;
+    }
+}
+

@@ -6,7 +6,8 @@ import { ThemeContext } from '../../../context/ThemeContext.jsx';
 const HomePage = () =>{
     const [location,setLocation] = useState(useLocation().pathname);
     const [greeting,setGreeting] = useState('Welcome to ReactIve Shop')
-    const {theme} = useContext(ThemeContext)
+    const {theme} = useContext(ThemeContext);
+    
     useEffect(()=>{
         if(location != '/'){
             setGreeting('Opss, we could not find the page you were looking for')

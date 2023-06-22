@@ -4,6 +4,7 @@ import Form from "../form/Form.jsx";
 import {CartContext} from '../../../context/CartContext.jsx'
 import './EndBuy.css';
 import { ThemeContext } from "../../../context/ThemeContext.jsx";
+import Swal from "sweetalert2";
 
 const EndBuy = () =>{
     const [formAvailable,setFormAvailable] = useState(false);
@@ -11,9 +12,21 @@ const EndBuy = () =>{
     const {theme} = useContext(ThemeContext);
     const [message,setMessage] = useState('');
 
-    const handleRemovee = (value) =>{
-        let newProducts = productsInCart.filter((product) => product.idCart != value)
-        setProductsInCart(newProducts);
+    const clickRemove = (value) =>{
+        Swal.fire({
+            title: 'Desea eliminar el producto del carro?',
+            showDenyButton: true,
+            confirmButtonText: 'Eliminar',
+            denyButtonText: `No Eliminar`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                handleRemove(value);
+                Swal.fire('Eliminado!', '', 'success')
+            } else if (result.isDenied) {
+                Swal.fire('No eliminado!', '', 'error')
+            }
+          })
     }
     const handleConfirm = () =>{
         let auxmessage = `<div><ul>${productsInCart.map((product) =>{
@@ -37,7 +50,7 @@ const EndBuy = () =>{
                 <h3 id="price">Price</h3>
                 <h3>Remove</h3>
             </div>
-            {productsInCart.map((product)=><EndBuyItem {...product} formAvailable={formAvailable} handleRemove={handleRemove}/>)}
+            {productsInCart.map((product)=><EndBuyItem {...product} formAvailable={formAvailable} handleRemove={clickRemove}/>)}
         </ul>}
         {productsInCart.length > 0 && <button className='confirmBtn' onClick={()=>handleConfirm()}>confirmar</button>}
         {productsInCart.length == 0 && <h2>No tienes productos en el carrito</h2>}

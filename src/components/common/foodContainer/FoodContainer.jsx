@@ -7,7 +7,7 @@ const FoodContainer = ({items,quantityCart}) =>{
         <img id='employee' src='https://res.cloudinary.com/dvcmeanik/image/upload/v1685722386/ReactIveShop/employee.png'/>
         <div className='armrest'>
             <div className='glass'>
-                {items.map((item) => <Product {...item} handleAdd={null} category='foods'/>)}
+                {items.map((item) => <Product key={item.id} {...item} handleAdd={null} category='foods'/>)}
             </div>
         </div>
     </div>
