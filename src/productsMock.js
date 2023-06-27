@@ -23,7 +23,8 @@ export const products = [
     {
         id:4,
         name:'Coca Zero', 
-        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685459128/ReactIveShop/wxqythnep7nr2u21ylqm.jpg',  price:300,
+        imgsrc:'http://res.cloudinary.com/dvcmeanik/image/upload/v1685459128/ReactIveShop/wxqythnep7nr2u21ylqm.jpg',
+        price:300,
         type:'soda'
     },
     {

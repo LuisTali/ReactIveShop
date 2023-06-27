@@ -49,10 +49,29 @@ const CartContextProvider = ({children}) =>{
             const productUpdated = {...product,salsa:'sin salsa'}
             productFinal = productUpdated;
         }
-        let product1 = {idCart:lastId,...productFinal,price:totalPrice,quantity:count};
+        let product1 = {
+            idCart:lastId,
+            id:productFinal.id,
+            name:productFinal.name,
+            imgsrc:productFinal.imgsrc,
+            price:totalPrice,
+            quantity:count,
+            extras:productFinal.extras,
+            salsa: productFinal.salsa
+        };
         for(const item of productsInCart){
             if(item.name == product1.name){
-                let temporaryProduct = {...product1,idCart:item.idCart,price:item.price,quantity:item.quantity};
+                console.log(JSON.stringify(item));
+                let temporaryProduct = {
+                    idCart:item.idCart,
+                    id:product1.id,
+                    name:product1.name,
+                    imgsrc:product1.imgsrc,
+                    price:item.price,
+                    quantity:item.quantity,
+                    extras:product1.extras,
+                    salsa: product1.salsa
+                };
                 if(JSON.stringify(item) == JSON.stringify(temporaryProduct)){
                     item.quantity += count;
                     item.price += totalPrice;
@@ -65,7 +84,6 @@ const CartContextProvider = ({children}) =>{
         if(!flag){
             let newProductsInCart = [...productsInCart];
             newProductsInCart.push(product1);
-            console.log(product1);
             setProductsInCart(newProductsInCart);
             setLastId(lastId + 1);
         }else{

@@ -1,11 +1,12 @@
 import React, { useState,useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { products } from "../../../productsMock.js";
 import { useCount } from '../../hooks/useCount.jsx';
 import SetQuantity from "../../common/setQuantity/SetQuantity.jsx";
 import './FoodEdit.css';
 import { CartContext } from "../../../context/CartContext.jsx";
 import { ThemeContext } from "../../../context/ThemeContext.jsx";
+import { db } from "../../../firebaseConfig.js";
+import {collection,documentId,getDocs,query,where} from "firebase/firestore";
 
 const FoodEdit = () =>{
     const {id} = useParams();
@@ -15,8 +16,19 @@ const FoodEdit = () =>{
     const {theme} = useContext(ThemeContext);
 
     useEffect(()=>{
-        let food = products.find((product)=>product.id == id);
-        setProduct({...food,extras:[]});
+        let itemsCollection = collection(db, "productos");
+        let queryFood = query(itemsCollection,where(documentId(),"==",id));
+        getDocs(queryFood)
+        .then((res)=>{
+            let burguerFind = res.docs.map((product)=>{
+                return {
+                    ...product.data(),
+                    id: product.id
+                }
+            })
+            setProduct({...burguerFind[0],extras:[]});
+        })
+        .catch((err)=>console.log(err));
     },[]);
 
     const handleChange = (e) =>{

@@ -2,6 +2,7 @@ import React,{useContext, useEffect, useState} from 'react';
 import './HomePage.css';
 import {useLocation} from 'react-router-dom';
 import { ThemeContext } from '../../../context/ThemeContext.jsx';
+import ItemListContainer from '../../layouts/itemListContainer/ItemListContainer';
 
 const HomePage = () =>{
     const [location,setLocation] = useState(useLocation().pathname);
@@ -17,6 +18,7 @@ const HomePage = () =>{
     return<div className={theme ? 'homepage bodyLight' : 'homepage bodyDark'}>
         <h1>{greeting}</h1>
         <h4>Seleccione una categoria para comenzar su tour</h4>
+        <ItemListContainer/>
     </div> 
 
 }
