@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const EndBuy = () =>{
     const [formAvailable,setFormAvailable] = useState(false);
-    const {productsInCart,setProductsInCart,handleRemove} = useContext(CartContext);
+    const {productsInCart,setProductsInCart,handleRemove,totalPrice} = useContext(CartContext);
     const {theme} = useContext(ThemeContext);
     const [message,setMessage] = useState('');
 
@@ -41,7 +41,7 @@ const EndBuy = () =>{
         if(productsInCart.length == 0) setFormAvailable(false);
     },[productsInCart]);
 
-    if(formAvailable) return <Form theme={theme} message={message} productsInCart={productsInCart} setFormAvailable={setFormAvailable} setProductsInCart={setProductsInCart}/>
+    if(formAvailable) return <Form theme={theme} message={message} productsInCart={productsInCart} setFormAvailable={setFormAvailable}/>
     else return <div className={theme ? 'cartList light bodyLight' : 'cartList dark bodyDark'}>
         {productsInCart.length > 0 && <ul className="shoppingCartList">
             <div className="cartItem">
@@ -52,6 +52,7 @@ const EndBuy = () =>{
             </div>
             {productsInCart.map((product)=><EndBuyItem {...product} formAvailable={formAvailable} handleRemove={clickRemove}/>)}
         </ul>}
+        {productsInCart.length > 0 && <div className="totalPrice"><h3>Total</h3><h3>${totalPrice()}</h3></div>}
         {productsInCart.length > 0 && <button className='confirmBtn' onClick={()=>handleConfirm()}>confirmar</button>}
         {productsInCart.length == 0 && <h2>No tienes productos en el carrito</h2>}
     </div>

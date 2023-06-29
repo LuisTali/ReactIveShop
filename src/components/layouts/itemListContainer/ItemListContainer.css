@@ -25,6 +25,9 @@
     gap: 1rem;
     margin-top: 2rem;
 }
+.foodContainers{
+    margin-top: 2rem;
+}
 
 @media screen and (max-width:1023px){
     .itemListContainer{

@@ -57,7 +57,8 @@ const CartContextProvider = ({children}) =>{
             price:totalPrice,
             quantity:count,
             extras:productFinal.extras,
-            salsa: productFinal.salsa
+            salsa: productFinal.salsa,
+            stock:productFinal.stock
         };
         for(const item of productsInCart){
             if(item.name == product1.name){
@@ -70,7 +71,8 @@ const CartContextProvider = ({children}) =>{
                     price:item.price,
                     quantity:item.quantity,
                     extras:product1.extras,
-                    salsa: product1.salsa
+                    salsa: product1.salsa,
+                    stock: product1.stock
                 };
                 if(JSON.stringify(item) == JSON.stringify(temporaryProduct)){
                     item.quantity += count;
@@ -107,13 +109,29 @@ const CartContextProvider = ({children}) =>{
         setQuantityCart(quantity);
     }
 
+    const totalPrice = () =>{
+        let total = 0;
+        for (const product of productsInCart){
+            total = total + product.price;
+        }
+        return total;
+    }
+
+    const emptyCart = () =>{
+        setProductsInCart([]);
+        setQuantityCart(0);
+        setLastId(0);
+    }
+
     const data  = {
         productsInCart:productsInCart,
         setProductsInCart:setProductsInCart,
         handleAddDrinks:handleAddDrinks,
         handleAddFoods:handleAddFoods,
         handleRemove:handleRemove,
-        quantityCart:quantityCart
+        quantityCart:quantityCart,
+        totalPrice:totalPrice,
+        emptyCart:emptyCart
     }
 
     return <CartContext.Provider value={data}>
