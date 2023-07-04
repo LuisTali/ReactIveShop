@@ -17,7 +17,7 @@ const Navbar = ({theme,setTheme,productsInCart,setProductsInCart}) =>{
 
     return <>
         <nav className={theme ? 'mobile light' : 'mobile dark'} >
-            <img onClick={()=>navigate('/')} src="https://res.cloudinary.com/dvcmeanik/image/upload/v1684852170/iuruqdqub5i4mgjw3cfs.jpg"/>
+            <img onClick={()=>navigate('/')} src="https://res.cloudinary.com/dvcmeanik/image/upload/v1688483132/ReactIveShop/Logos/olpkc8ub9tq9svzgklbd.png"/>
             <ul className={dropdown ? "navList mobile show" : 'navList mobile'}>
                 {menuNavigate.map(({id,path,title,Icon})=>{
                     return <li key={id}><Link to={path} className={theme ? 'light' : 'dark'}><Icon/>{title}</Link></li>
