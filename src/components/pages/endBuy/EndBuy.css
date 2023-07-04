@@ -36,8 +36,13 @@
     border-radius: 10px;
 }
 .cartItem .name{
+    display: block;
     cursor: pointer;
     justify-content: left;
+    width: 88px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .showInfo{
     display: normal;
@@ -52,4 +57,10 @@
     width: 40%;
     display: flex;
     justify-content: space-around;
+}
+
+@media screen and (max-width:415px) {
+    .cartList .shoppingCartList li .cartItem h3{
+        font-size: 0.9rem;
+    }
 }
