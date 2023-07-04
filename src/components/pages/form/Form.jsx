@@ -16,7 +16,7 @@ const Form = ({theme,productsInCart,setFormAvailable}) =>{
     const handleSubmit = async(e) =>{
         e.preventDefault();
         var validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-        if(!userData.to_email || !userData.to_name || !userData.adress){
+        if(!userData.to_email || !userData.to_name || !userData.adress || !userData.cellphone){
             Swal.fire({
                 title: 'Llene todos los campos',
                 showDenyButton: false,
@@ -55,7 +55,6 @@ const Form = ({theme,productsInCart,setFormAvailable}) =>{
             }, (error)=> {
                 console.log(error);
             });
-            console.log(message);
         },3000);
         }
         else{

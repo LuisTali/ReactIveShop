@@ -66,13 +66,13 @@ const EndBuy = () =>{
                 <h3 id="price">Price</h3>
                 <h3>Remove</h3>
             </div>
-            {productsInCart.map((product)=><EndBuyItem {...product} formAvailable={formAvailable} handleRemove={clickRemove}/>)}
+            {productsInCart.map((product)=><EndBuyItem key={product.idCart} {...product} formAvailable={formAvailable} handleRemove={clickRemove}/>)}
         </ul>}
-        {productsInCart.length > 0 && <>
-            <div className="totalPrice"><h3>Total</h3><h3>${totalPrice()}</h3></div>
+        {productsInCart.length > 0 && <div className="totalPrice"><h3>Total</h3><h3>${totalPrice()}</h3></div>}
+        {productsInCart.length > 0 && <div>
+            <button className='confirmBtn' onClick={()=>handleConfirm()}>comprar</button>
             <button className="emptyButton" onClick={()=>clickEmptyCart()}>vaciar carrito</button>
-        </>}
-        {productsInCart.length > 0 && <button className='confirmBtn' onClick={()=>handleConfirm()}>comprar</button>}
+        </div > }
         {productsInCart.length == 0 && <h2>No tienes productos en el carrito</h2>}
     </div>
 }

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 const EndBuyItem = ({idCart,name,quantity,price,extras,salsa,type,handleRemove,formAvailable}) =>{
     const [show,setShow] = useState(false);
     if(salsa == undefined && type == 'food') salsa = 'sin aderezo';
-
     return <li>
             <div className="cartItem" >
                 <h3 className="name" onClick={()=>setShow(!show)}>{name}</h3>
@@ -12,7 +11,8 @@ const EndBuyItem = ({idCart,name,quantity,price,extras,salsa,type,handleRemove,f
                 <h3><button className='removeBtn' onClick={(e)=>{handleRemove(idCart)}}>-</button></h3>
             </div>
         <div className={show ? 'showInfo' : 'notShow'}>
-            {extras && extras.map((extra) => <h5>{extra}</h5>)}
+            <h4>{name}</h4>
+            {extras && extras.map((extra) => <h5 key={extra}>{extra}</h5>)}
             {salsa && <h5>Aderezo: {salsa}</h5>}
         </div>
     </li>

@@ -14,6 +14,7 @@ const FoodEdit = () =>{
     const [product,setProduct] = useState({});
     const {handleAddFoods} = useContext(CartContext);
     const {theme} = useContext(ThemeContext);
+    const navigate = useNavigate();
 
     useEffect(()=>{
         let itemsCollection = collection(db, "productos");
@@ -50,6 +51,11 @@ const FoodEdit = () =>{
             const productUpdated = {...product,salsa:e.target.value}
             setProduct(productUpdated);
         }
+    }
+
+    const handleAdd = (product,count) =>{
+        handleAddFoods(product,count);
+        navigate('/categorias/foods')
     }
 
     return(
@@ -92,7 +98,7 @@ const FoodEdit = () =>{
                         <option value='barbacoa'>barbacoa</option>
                     </select>
                 </div>
-            <SetQuantity count={count} product={product} increment={increment} decrement={decrement} handleSubmit={handleAddFoods}/>    
+            <SetQuantity count={count} product={product} increment={increment} decrement={decrement} handleSubmit={handleAdd}/>    
             </div>
         </div>
     );

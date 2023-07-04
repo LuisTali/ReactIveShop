@@ -24,7 +24,6 @@ const CartContextProvider = ({children}) =>{
                 setProductsInCart(newProducts)
             }else{
                 let newProduct = {idCart:lastId,...item,price:totalPrice};
-                console.log(newProduct);
                 setQuantityCart(quantityCart + newProduct.quantity);
                 let newProducts = [...productsInCart];
                 newProducts.push(newProduct);

@@ -26,6 +26,7 @@ const CardWidget = ({theme}) =>{
     }
 
     const deleteProduct = (id) =>{
+        setShowCart(false);
         Swal.fire({
             title: 'Desea eliminar el producto del carro?',
             showDenyButton: true,
@@ -35,11 +36,11 @@ const CardWidget = ({theme}) =>{
             /* Read more about isConfirmed, isDenied below */
             if (result.isConfirmed) {
                 handleRemove(id);
-                Swal.fire('Eliminado!', '', 'success')
+                Swal.fire('Eliminado!', '', 'success');
             } else if (result.isDenied) {
-                Swal.fire('No eliminado!', '', 'error')
+                Swal.fire('No eliminado!', '', 'error');
             }
-          })
+        })
     }
 
     return <div id='shoppingCart'>
