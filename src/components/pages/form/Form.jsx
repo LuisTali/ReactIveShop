@@ -8,7 +8,7 @@ import './Form.css'
 import Swal from 'sweetalert2'
 
 const Form = ({theme,productsInCart,setFormAvailable}) =>{
-    const [userData,setUserData] = useState({to_name:'',reply_to:'',to_email:'',adress:''});
+    const [userData,setUserData] = useState({to_name:'',reply_to:'',to_email:'',adress:'',cellphone:''});
     const {totalPrice, emptyCart} = useContext(CartContext);
     const [message,setMessage] = useState('');
     const navigate = useNavigate();
@@ -66,6 +66,7 @@ const Form = ({theme,productsInCart,setFormAvailable}) =>{
     const createMessage = () =>{
         let auxmessage = `<div>
         <h3>Con envio a: ${userData.adress}</h3>
+        <h3>Telefono: ${userData.cellphone}</h3>
         <ul>${productsInCart.map((product) =>{
             return (
                 `<li><h3>Name: ${product.name}</h3><h3>Quantity: ${product.quantity}</h3><h3>Price: $${product.price}</h3></li>`    
@@ -95,6 +96,10 @@ const Form = ({theme,productsInCart,setFormAvailable}) =>{
             <div className="inputGroup">
                 <label>Direccion</label>
                 <input type="text" name="adress" onChange={handleChange}/>
+            </div>
+            <div className="inputGroup">
+                <label>Telefono</label>
+                <input type="text" name="cellphone" onChange={handleChange}/>
             </div>
             <input type="text" readOnly style={{display:'none'}} name="message" value={message}/>
             <input type="text" readOnly style={{display:'none'}} name="reply_to" value='taliercioluis1@gmail.com'/>
