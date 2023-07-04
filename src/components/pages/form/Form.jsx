@@ -9,16 +9,26 @@ import Swal from 'sweetalert2'
 
 const Form = ({theme,productsInCart,setFormAvailable}) =>{
     const [userData,setUserData] = useState({to_name:'',reply_to:'',to_email:'',adress:'',cellphone:''});
+    const [verifyEmail,setVerifyEmail] = useState('');
     const {totalPrice, emptyCart} = useContext(CartContext);
     const [message,setMessage] = useState('');
     const navigate = useNavigate();
 
+    console.log(verifyEmail);
+
     const handleSubmit = async(e) =>{
         e.preventDefault();
         var validEmail =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
-        if(!userData.to_email || !userData.to_name || !userData.adress || !userData.cellphone){
+        if(!userData.to_email || !userData.to_name || !userData.adress || !userData.cellphone || !verifyEmail){
             Swal.fire({
                 title: 'Llene todos los campos',
+                showDenyButton: false,
+                confirmButtonText: 'Entendido',
+            })
+            return;
+        }else if(userData.to_email != verifyEmail){
+            Swal.fire({
+                title: 'Compruebe que su email coincida las dos veces',
                 showDenyButton: false,
                 confirmButtonText: 'Entendido',
             })
@@ -91,6 +101,10 @@ const Form = ({theme,productsInCart,setFormAvailable}) =>{
             <div className="inputGroup">
                 <label>Email</label>
                 <input type="text" name="to_email" onChange={handleChange}/>
+            </div>
+            <div className="inputGroup">
+                <label>Email nuevamente</label>
+                <input type="text" name="verifyEmail" onChange={(e)=>setVerifyEmail(e.target.value)}/>
             </div>
             <div className="inputGroup">
                 <label>Direccion</label>
