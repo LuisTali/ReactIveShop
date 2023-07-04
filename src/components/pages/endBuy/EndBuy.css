@@ -19,12 +19,13 @@
     text-align: center;
     margin-top: 5rem;
 }
-.cartList .confirmBtn{
+.cartList .confirmBtn, .cartList .emptyButton{
     margin: 2rem;
     padding: 0.5rem 1rem;
     border-radius: 10px;
     font-weight: 500;
 }
+
 .cartItem h3{
     display: flex;
     width: 25%;

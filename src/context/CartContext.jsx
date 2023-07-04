@@ -62,7 +62,6 @@ const CartContextProvider = ({children}) =>{
         };
         for(const item of productsInCart){
             if(item.name == product1.name){
-                console.log(JSON.stringify(item));
                 let temporaryProduct = {
                     idCart:item.idCart,
                     id:product1.id,

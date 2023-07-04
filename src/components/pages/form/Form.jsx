@@ -42,14 +42,13 @@ const Form = ({theme,productsInCart,setFormAvailable}) =>{
         addDoc(ordersCollection,order);
 
         for(const product of productsInCart){
-            console.log(product);
             updateDoc(doc(db,"productos",product.id),{
                 stock: product.stock - product.quantity
             });
         };
 
         await setTimeout(()=>{
-            emailjs.sendForm('service_0llybgu', 'template_d6j5lki', e.target, 'tYIrML58jHoHfhEpL')
+            emailjs.sendForm(import.meta.env.VITE_SERVICE_ID, import.meta.env.VITE_TEMPLATE_ID, e.target,import.meta.env.VITE_PUBLIC_KEY)
             .then((result)=>{
                 emptyCart();
                 navigate('/');

@@ -8,7 +8,7 @@ import Swal from "sweetalert2";
 
 const EndBuy = () =>{
     const [formAvailable,setFormAvailable] = useState(false);
-    const {productsInCart,setProductsInCart,handleRemove,totalPrice} = useContext(CartContext);
+    const {productsInCart,setProductsInCart,handleRemove,totalPrice,emptyCart} = useContext(CartContext);
     const {theme} = useContext(ThemeContext);
     const [message,setMessage] = useState('');
 
@@ -25,6 +25,22 @@ const EndBuy = () =>{
                 Swal.fire('Eliminado!', '', 'success')
             } else if (result.isDenied) {
                 Swal.fire('No eliminado!', '', 'error')
+            }
+          })
+    }
+    const clickEmptyCart = () =>{
+        Swal.fire({
+            title: 'Desea vaciar el carrito?',
+            showDenyButton: true,
+            confirmButtonText: 'Vaciar',
+            denyButtonText: `No Vaciar`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                emptyCart()
+                Swal.fire('Vaciado!', '', 'success')
+            } else if (result.isDenied) {
+                Swal.fire('Cancelado!', '', 'error')
             }
           })
     }
@@ -52,8 +68,11 @@ const EndBuy = () =>{
             </div>
             {productsInCart.map((product)=><EndBuyItem {...product} formAvailable={formAvailable} handleRemove={clickRemove}/>)}
         </ul>}
-        {productsInCart.length > 0 && <div className="totalPrice"><h3>Total</h3><h3>${totalPrice()}</h3></div>}
-        {productsInCart.length > 0 && <button className='confirmBtn' onClick={()=>handleConfirm()}>confirmar</button>}
+        {productsInCart.length > 0 && <>
+            <div className="totalPrice"><h3>Total</h3><h3>${totalPrice()}</h3></div>
+            <button className="emptyButton" onClick={()=>clickEmptyCart()}>vaciar carrito</button>
+        </>}
+        {productsInCart.length > 0 && <button className='confirmBtn' onClick={()=>handleConfirm()}>comprar</button>}
         {productsInCart.length == 0 && <h2>No tienes productos en el carrito</h2>}
     </div>
 }

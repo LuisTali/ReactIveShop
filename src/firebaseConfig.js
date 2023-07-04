@@ -2,12 +2,12 @@ import { initializeApp } from "firebase/app";
 import {getFirestore} from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBVmyMzpoWyWur95Y5a7vqqJrrJISBhkOY",
-  authDomain: "reactiveshop86.firebaseapp.com",
-  projectId: "reactiveshop86",
-  storageBucket: "reactiveshop86.appspot.com",
-  messagingSenderId: "648815661542",
-  appId: "1:648815661542:web:28c071936a7e1fe6400627"
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_APP_ID
 };
 
 const app = initializeApp(firebaseConfig);
