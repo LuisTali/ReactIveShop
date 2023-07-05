@@ -1,6 +1,7 @@
 ReactIve Shop is my final project of the React course of Coderhouse.
 I have been inspired by the market of Axion, a filling station here in Mar del Plata.
 To give life to this E-Commerce I have used React.js, Firebase of Google for the data of the products and the orders and Cloudinary to store the images.
+In order to copy this app and use it, you have to copy the repo to a folder in your PC, once in Visual Studio execute the commando npm install and lastly you can run the server with npm run dev
 
 Link to the E-Commerce
 https://react-ive-shop-1ix6dom5a-luistali.vercel.app
