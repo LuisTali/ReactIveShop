@@ -1,0 +1,60 @@
+.inputGroupSearch{
+    display: flex;
+    width: 95%;
+    margin-left: 2.5%;
+    background-color: white;
+    color: black;
+    padding: 0;
+    border-radius: 10px;
+    border: 3px solid white;
+    padding-right: 0.75rem;
+
+}
+.inputOrdersSearch{
+    height: 100%; 
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border: 0px;
+    text-align: center;
+    cursor: pointer;
+}
+.inputGroupSearch .icon{
+    height: 100%;
+}
+.formOrdersSearch.light .inputGroupSearch{
+    border-radius: 10px;
+    background: black;
+    color: whitesmoke;
+    border: 2px solid black;
+}
+.formOrdersSearch.light .inputGroupSearch .inputOrdersSearch{
+    background: black;
+    color: whitesmoke;
+}
+.formOrdersSearch.light .inputGroupSearch .inputOrdersSearch::placeholder{
+    color: whitesmoke;
+}
+
+@media screen and (max-width:700px){
+
+    .formOrdersSearch.light .inputGroupSearch{
+        border-radius: 10px;
+        background: black;
+        border: 2px solid black;
+    }
+
+    .formOrdersSearch.light .inputGroupSearch .icon{
+        color: whitesmoke;
+    }
+    
+    .inputGroupSearch{
+        border-radius: 10px;
+        border: 2px solid black;
+
+    } 
+
+    .inputOrdersSearch{
+        width: 100%;
+        padding: 0.25rem;
+    }
+}

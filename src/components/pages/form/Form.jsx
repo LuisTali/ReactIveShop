@@ -14,7 +14,15 @@ const Form = ({theme,productsInCart,setFormAvailable}) =>{
     const [message,setMessage] = useState('');
     const navigate = useNavigate();
 
-    console.log(verifyEmail);
+    function generateUUID() {
+        var d = new Date().getTime();
+        var uuid = 'xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
+            var r = (d + Math.random() * 16) % 16 | 0;
+            d = Math.floor(d / 16);
+            return (c == 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+        });
+        return uuid;
+    }
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
@@ -34,7 +42,9 @@ const Form = ({theme,productsInCart,setFormAvailable}) =>{
             })
             return;
         }
-        createMessage();
+        let id = generateUUID();
+
+        createMessage(id);
 
         if(validEmail.test(userData.to_email)){
         Swal.fire(
@@ -43,7 +53,10 @@ const Form = ({theme,productsInCart,setFormAvailable}) =>{
             'success'
         )
         //Creo la orden y la subo a firebase
+        
+
         let order = {
+            orderId: id,
             buyer: userData,
             items: productsInCart,
             total: totalPrice()
@@ -72,8 +85,9 @@ const Form = ({theme,productsInCart,setFormAvailable}) =>{
         }
     }
 
-    const createMessage = () =>{
+    const createMessage = (id) =>{
         let auxmessage = `<div>
+        <h3>Orden Id: ${id}</h3>
         <h3>Con envio a: ${userData.adress}</h3>
         <h3>Telefono: ${userData.cellphone}</h3>
         <ul>${productsInCart.map((product) =>{

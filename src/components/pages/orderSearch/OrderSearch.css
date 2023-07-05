@@ -1,0 +1,73 @@
+.orderPage{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+.orderDetails{
+    width: 80%;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+.orderDetails .itemsList{
+    margin-top: 1rem;
+}
+ul .itemDetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+ul .itemDetails .principalInfo{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+ul .itemDetails h3{
+    width: 25%;
+}
+.orderDetails .total{
+    display: flex;
+    width: 100%;
+    border-top: 2px solid black;
+    justify-content: space-between;
+    padding-top: 0.5rem;
+}
+.total h3{
+    width: 25%;
+}
+
+.orderPageLoading{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+@media screen and (max-width:500px) {
+    .orderDetails{
+        width: 100%;
+        padding: 0.5rem;
+    }
+    .orderDetails h2{
+        font-size: 1.2rem;
+    }
+    .orderDetails h2,.orderDetails h3{
+        margin: 0.25rem;
+    }
+    ul .itemDetails .principalInfo .name{
+        width: 80px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .orderPageLoading h2{
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width:340px) {
+    .orderDetails h2{
+        font-size: 1rem;
+    }
+}

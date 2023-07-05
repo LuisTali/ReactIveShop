@@ -15,7 +15,6 @@ nav img{
     height: 40px;
     border-radius: 5px;
     padding: 0.5rem;
-    background-color: white;
 }
 
 nav .navList{
@@ -27,7 +26,10 @@ nav .navList li{
 nav .arrowMobile{
     display: none;
 }
-
+.formOrdersSearch{
+    display: flex;
+    width: 100%;
+}
 @media screen and (max-width:700px){
     nav .arrowMobile{
         display: flex;
@@ -36,7 +38,7 @@ nav .arrowMobile{
     nav .navList{
         position: absolute;
         top: 0;
-        margin-top: 40px;
+        margin-top: 50px;
         margin-left: 50%;
         transform: translate(-50%);
         flex-direction: column;
@@ -45,9 +47,6 @@ nav .arrowMobile{
         padding: 1rem;
     }
 
-    nav .navList{
-        
-    }
     nav .navList.mobile{
         display: none;
         pointer-events: none;
@@ -55,9 +54,16 @@ nav .arrowMobile{
     nav .navList.mobile.show{
         display: flex;
         pointer-events: all;
+        padding-bottom: 4rem;
     }
     nav .navList li a{
         width: 100%;
+    }
+    .mobile.light{
+        border-bottom: 2px solid black;
+    }
+    .formOrdersSearch{
+        padding-bottom: 0.5rem;
     }
 }
 

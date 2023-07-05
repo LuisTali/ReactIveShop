@@ -4,11 +4,11 @@ import CardWidget from '../../common/cardWidget/CardWidget.jsx'
 import './Navbar.css'
 import { menuNavigate } from "../../../routes/menuNavigate.js";
 import LunchDiningIcon from '@mui/icons-material/LunchDining';
-import ElectricBoltIcon from '@mui/icons-material/ElectricBolt';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import LocalDrinkIcon from '@mui/icons-material/LocalDrink';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowDropUpIcon from '@mui/icons-material/ArrowDropUp';
+import SearchInput from "../../searchInput/SearchInput.jsx";
 
 const Navbar = ({theme,setTheme,productsInCart,setProductsInCart}) =>{
     const navigate = useNavigate();
@@ -23,6 +23,7 @@ const Navbar = ({theme,setTheme,productsInCart,setProductsInCart}) =>{
                     return <li key={id}><Link to={path} className={theme ? 'light' : 'dark'}><Icon/>{title}</Link></li>
                 })}
                 <li><a onClick={()=>setTheme(!theme)} className={theme ? 'light' : 'dark'}><DarkModeIcon />{theme ? 'DarkTheme' : 'LightTheme'}</a></li>
+                <li><SearchInput theme={theme}/></li>
             </ul>
             {dropdown ? <div  className="arrowMobile" onClick={()=>setDropdown(!dropdown)}>Cerrar<ArrowDropUpIcon/></div> : <div className="arrowMobile" onClick={()=>setDropdown(!dropdown)}>Menu<ArrowDropDownIcon /></div>
             }
