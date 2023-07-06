@@ -4,7 +4,7 @@ To give life to this E-Commerce I have used React.js, Firebase of Google for the
 In order to copy this app and use it, you have to copy the repo to a folder in your PC, once in Visual Studio execute the commando npm install and lastly you can run the server with npm run dev
 
 Link to the E-Commerce
-https://react-ive-shop-1ix6dom5a-luistali.vercel.app
+[https://react-ive-shop-1ix6dom5a-luistali.vercel.app](https://react-ive-shop.vercel.app)
 
 
 ![drinksPage](https://github.com/LuisTali/ReactIveShop/assets/101566196/1121af40-53a2-4ca0-b340-7e2948554a9a)
